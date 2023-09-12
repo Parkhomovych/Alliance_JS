@@ -1,5 +1,5 @@
 @import url(./reset.css);
-
+@import url(./scrollbar.css);
 /* Fonst */
 @font-face {
   font-family: 'Inter';
@@ -10,25 +10,37 @@
   font-display: swap;
 }
 @font-face {
-    font-family: 'Inter';
-    src: url(../fonts/Inter-Medium.woff2) format('woff2'),
-      url(../fonts/Inter-Medium.woff) format('woff');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Inter';
-    src: url(../fonts/Inter-SemiBold.woff2) format('woff2'),
-      url(../fonts/Inter-SemiBold.woff) format('woff');
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-  }
-/*  */
-
+  font-family: 'Inter';
+  src: url(../fonts/Inter-Medium.woff2) format('woff2'),
+    url(../fonts/Inter-Medium.woff) format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url(../fonts/Inter-SemiBold.woff2) format('woff2'),
+    url(../fonts/Inter-SemiBold.woff) format('woff');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+/* Fonts */
+:root {
+  --black-firs-color: #000000;
+  --black-second-color: #050505;
+  --whiit-first-color: #ffffff;
+  --white-second-color: #b4b4b4;
+  --breen-color: #9bb537;
+}
 html {
   scroll-behavior: smooth;
+}
+body{
+  background-color:#F8F8F8 ;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  
 }
 .visually-hidden {
   position: absolute;
