@@ -30,17 +30,17 @@
   --black-firs-color: #000000;
   --black-second-color: #050505;
   --whiit-first-color: #ffffff;
-  --white-second-color: #b4b4b4;
+  --white-second-color: #f8f8f8;
+  --grey-color: #b4b4b4;
   --breen-color: #9bb537;
 }
 html {
   scroll-behavior: smooth;
 }
-body{
-  background-color:#F8F8F8 ;
+body {
+  background-color: #f8f8f8;
   font-family: 'Inter', sans-serif;
   font-style: normal;
-  
 }
 .visually-hidden {
   position: absolute;
