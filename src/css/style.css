@@ -33,6 +33,9 @@
   --white-second-color: #f8f8f8;
   --grey-color: #b4b4b4;
   --breen-color: #9bb537;
+
+  --time: 350ms ;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
   scroll-behavior: smooth;
