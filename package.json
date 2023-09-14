@@ -22,6 +22,7 @@
     "axios": "^1.5.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
+    "simplelightbox": "^2.14.2",
     "swiper": "^10.2.0"
   },
   "devDependencies": {
