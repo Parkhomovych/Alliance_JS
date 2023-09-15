@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/scrollbar.css" />
+    <link rel="stylesheet" href="./css/favorite.css" />
+    <!-- fonts -->
+    <link rel="stylesheet" href="./fonts/Inter-Medium.woff" />
+    <link rel="stylesheet" href="./fonts/Inter-Medium.woff2" />
+    <link rel="stylesheet" href="./fonts/Inter-Regular.woff" />
+    <link rel="stylesheet" href="./fonts/Inter-Regular.woff2" />
+    <link rel="stylesheet" href="./fonts/Inter-SemiBold.woff" />
+    <link rel="stylesheet" href="./fonts/Inter-SemiBold.woff2" />
+  </head>
+  <body>
+    <div class="main-content">
+      <!-- Тут буде HEADER -->
+      <main class="main">
+        <!-- MAIN -->
+        <div class="section-fav-hero animate__animated animate__fadeInDown">
+          <div class="container container-hero">
+            <picture class="favorite-image">
+              <source
+                media="(min-width:1280px)"
+                srcset="
+                  /src/images/favorite-hero/desktop-favorites-1x.webp 1x,
+                  /src/images/favorite_hero/desktop-favorites-2x.webp 2x
+                "
+              />
+              <source
+                media="(min-width:1280px)"
+                srcset="
+                  /src/images/favorite-hero/desktop-favorites-1x.png 1x,
+                  /src/images/favorite_hero/desktop-favorites-2x.png 2x
+                "
+              />
+              <source
+                media="(min-width:768px)"
+                srcset="
+                  /src/images/favorite-hero/tab-favorites-1x.webp 1x,
+                  /src/images/favorite-hero/tab-favorites-2x.webp 2x
+                "
+              />
+              <source
+                media="(min-width:768px)"
+                srcset="
+                  /src/images/favorite-hero/tab-favorites-1x.png 1x,
+                  /src/images/favorite-hero/tab-favorites-2x.png 2x
+                "
+              />
+              <source
+                media="(max-width:767px)"
+                srcset="
+                  /src/images/favorite-hero/mob-favorites-1x.webp 1x,
+                  /src/images/favorite-hero/mob-favorites-2x.webp 2x
+                "
+              />
+              <source
+                media="(max-width:767px)"
+                srcset="
+                  /src/images/favorite-hero/mob-favorites-1x.png 1x,
+                  /src/images/favorite_hero/mob-favorites-2x.png 2x
+                "
+              />
+              <img
+                class="mob-hero-img"
+                src="/src/images/favorite-hero/mob-favorites-1x.png 1x"
+                alt="Tasty food"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </div>
+
+        <div class="favorite-cards animate__animated animate__fadeInUp">
+          <div class="container">
+            <div class="favorite-button-list">
+              <ul
+                class="categories-list animate__animated animate__fadeInLeft"
+              ></ul>
+            </div>
+            <ul class="favorite-render-cards"></ul>
+            <div class="no-recipe-content">
+              <svg class="fav-icon" width="97" height="83">
+                <use href="./images/element-fav.svg#icon-elements"></use>
+              </svg>
+              <p class="no-recipes">
+                It appears that you haven't added any recipes to your favorites
+                yet. To get started, you can add recipes that you like to your
+                favorites for easier access in the future.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
