@@ -21,50 +21,44 @@ const resource = {
 const searchRecipesFilter = async (category,page,limit,time,area,ingredient) => {
         // Праметри API запиту
     const params = new URLSearchParams({
-        category: `${'Beef'}`,
-        page: 1,
+        
         limit: 6,
-        time: `${160}`,
-        area: `${'Irish'}`,
-        ingredient: `${'640c2dd963a319ea671e3796'}`,
+        
     });
         const response = await axios.get(`${URL}${resource.recipes}?${params}`);
         return response;
 };
 window.addEventListener('load', handler);
 function handler() { searchRecipesFilter().then(create).catch(error => { console.log(error) }) };
-function create(res) {
-  
-  elem.innerHTML = createMarkup(res.data);
-const imgGradient = document.querySelector('.photo-img');
-  console.log(imgGradient);
-  imgGradient.style.background = "#050505"; // як приклад замість градієнту, щоб побачити, що працює
-
+function create(res) {  
+  elem.innerHTML = createMarkup(res.data.results);
     console.log(res);
 }
 function createMarkup(params) {
 
-    return  `
-    <li>
+    return params.map(elem => {
+    return `
+    <li class="item">
     <div class="photo-card">
+    <div class="photo-exp"></div>
         <div class="photo-thumb">
-          <img class="photo-img" src="${params.results[0].thumb}" alt="${params.results[0].title}" loading="lazy" />
+          <img class="photo-img" src="${elem.thumb}" alt="${elem.title}" loading="lazy"/>
         </div>
         <button type="button" class="btn-favorite">
                 <svg class="icon-favorite" width="22" height="22">
-                  <use href="images/icons.svg#heart"></use>
+                  <use href="../images/icons.svg#heart"></use>
                 </svg>
         </button>
         <div class="info">
             <p class="info-title">
-                  ${params.results[0].title}
+                  ${elem.title}
             </p>
             <p class="info-text">
-                ${params.results[0].description}
+                ${elem.description}
             </p>
             <div class="info-bottom">
             <div class="info-rating">
-            ${params.results[0].rating}
+            ${elem.rating}
                 <svg width="22" height="22">
                   <use href="images/icons.svg#star"></use>
                 </svg>
@@ -77,8 +71,8 @@ function createMarkup(params) {
         </div>
     </li>
   `
-      ;
-};
+  }).join("");
+}
 
 
 

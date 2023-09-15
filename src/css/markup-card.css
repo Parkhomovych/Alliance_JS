@@ -13,10 +13,21 @@
     width: 335px;
     border-radius: 8px;
 }
-
+.photo-thumb:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    background: linear-gradient(1deg, rgba(5, 5, 5, .6) 0%, rgba(5, 5, 5, 0) 100%);
+    border-radius: 8px;
+}
 .btn-favorite {
     position: absolute;
 
+    z-index: 5;
     top: 16px;
     right: 16px;
     background-color: transparent;
@@ -31,15 +42,19 @@
     stroke: inherit;
     fill: inherit;
 }
-
+.info {
+    z-index: 4;
+}
 .info-bottom {
     display: flex;
-
     justify-content: space-between;
     align-items: center;
     
 }
 .info-rating {
+    display: flex;
+    align-items: center;
+
     font-size: 14px;
 font-weight: 500;
 line-height: 1.28;
