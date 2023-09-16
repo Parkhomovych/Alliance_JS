@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="./fonts/Inter-SemiBold.woff2" />
   </head>
   <body>
+    <include src="./partials/header.html"></include>
     <div class="main-content">
-      <!-- Тут буде HEADER -->
       <main class="main">
         <!-- MAIN -->
-        <div class="section-fav-hero animate__animated animate__fadeInDown">
-          <div class="container container-hero">
+        <div class="section-fav-hero">
+          <div class="container">
             <picture class="favorite-image">
               <source
                 media="(min-width:1280px)"
@@ -75,13 +75,10 @@
             </picture>
           </div>
         </div>
-
-        <div class="favorite-cards animate__animated animate__fadeInUp">
+        <div class="favorite-cards">
           <div class="container">
             <div class="favorite-button-list">
-              <ul
-                class="categories-list animate__animated animate__fadeInLeft"
-              ></ul>
+              <ul class="categories-list"></ul>
             </div>
             <ul class="favorite-render-cards"></ul>
             <div class="no-recipe-content">

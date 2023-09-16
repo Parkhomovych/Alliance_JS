@@ -1,7 +1,3 @@
-.main-content {
-}
-.main {
-}
 .section-fav-hero {
   margin-top: 52px;
   margin-bottom: 40px;
@@ -17,24 +13,17 @@
     margin-top: 40px;
   }
 }
-
+.mob-hero-img {
+  width: 100%;
+}
 @media screen and (min-width: 1024px) {
   .mob-hero-img {
     height: 356px;
   }
 }
-
-/* .container {
-} */
-.container-hero {
-}
 .favorite-image {
-}
-.favorite-cards {
-}
-.animate__fadeInUp {
-}
-.favorite-button-list {
+  display: block;
+  margin: 0;
 }
 .categories-list {
   display: flex;
@@ -47,11 +36,6 @@
   .categories-list {
     margin-bottom: 32px;
   }
-}
-
-.animate__fadeInLeft {
-}
-.favorite-render-cards {
 }
 @media screen and (min-width: 768px) {
   .favorite-render-cards {
@@ -66,7 +50,6 @@
     gap: 32px 16px;
   }
 }
-
 .no-recipe-content {
   display: flex;
   flex-direction: column;
@@ -81,7 +64,6 @@
     height: 83px;
   }
 }
-
 .no-recipes {
   text-align: center;
   font-size: 14px;
