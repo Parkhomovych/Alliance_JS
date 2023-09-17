@@ -3,6 +3,8 @@
 @import url(./header.css);
 @import url(./markup-card.css);
 @import url(./favorite.css);
+@import url(./markup-card.css);
+@import url(./categories.css);
 
 /* Fonst */
 @font-face {
@@ -39,7 +41,7 @@
   --grey-color: #b4b4b4;
   --breen-color: #9bb537;
 
-  --time: 350ms ;
+  --time: 350ms;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
