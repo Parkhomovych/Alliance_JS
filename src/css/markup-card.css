@@ -213,7 +213,14 @@ color: var(--white-second-color);
 
 .info-star {
     fill: rgba(248, 248, 248, .1);
-    
+    width: 14px;
+    height: 14px;
+}
+@media only screen and (min-width: 768px) {
+    .info-star {
+        width: 12px;
+        height: 12px;
+    }
 }
 .yellow-star {
     fill:#EEA10C;
