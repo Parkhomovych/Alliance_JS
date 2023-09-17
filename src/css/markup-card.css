@@ -1,4 +1,6 @@
-
+.card-item {
+    width: 100%;
+}
 @media only screen and (min-width: 768px) {
     .container-card-list{
         width: 496px;
@@ -30,9 +32,7 @@
     }
 }
 
-.card-item {
-    width: 100%;
-}
+
 
 @media only screen and (min-width: 768px) {
     .card-item {
@@ -211,6 +211,10 @@ color: var(--white-second-color);
     color: var(--white-second-color);
 }
 
-.info-star-fff {
+.info-star {
     fill: rgba(248, 248, 248, .1);
+    
+}
+.yellow-star {
+    fill:#EEA10C;
 }
