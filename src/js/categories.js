@@ -86,21 +86,14 @@ searchRecipesPopular()
   })
   .catch(() => {});
 
-// -------------------------------------------------------------------------------замінити на Віталика фукції -------------------------
-
-//-------------------------------------------------------------------------------------------------------------------------------
-
 // перемальовка блоку рецептів після зміни параметрів запиту з 1 сторынки з перемальовкою пагінації
-//(функцію відмальовки makeMarkupRecipes замінити на Кірину)
 
 function showSearchRecipes() {
   paginationRecipes.off('afterMove', onMovePagination);
   changeParams('page', 1);
   searchRecipesFlexFilter(paramsRecepies)
     .then(recipes => {
-      // refs.recepies.innerHTML = makeMarkupRecipes(recipes);
-      // console.log(paramsRecepies.toString());
-      refs.recepies.innerHTML = renderMarkup(recipes.data.rezults);
+      renderMarkup(recipes);
       paginationListenerOn(recipes.data.totalPages);
     })
     .catch(() => {});
@@ -110,7 +103,7 @@ function showSearchRecipes() {
 function reShowSearchRecipes() {
   searchRecipesFlexFilter(paramsRecepies)
     .then(recipes => {
-      refs.recepies.innerHTML = makeMarkupRecipes(recipes);
+      renderMarkup(recipes);
     })
     .catch(() => {});
 }
@@ -179,6 +172,7 @@ function unselectCategories() {
   }
 }
 
+// обробка вибору популярного рецепту
 function onClickPopular(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
     console.log(evt.target.nodeName);
@@ -237,15 +231,3 @@ function makeMarkupPopular(arr) {
     .join('');
 }
 
-// перемальовка блоку рецептів за зміненими параметрами (тестовий блок, потім вилучити)
-function makeMarkupRecipes(obj) {
-  const {
-    data: { results: arr },
-  } = obj;
-  const markup = arr
-    .map(({ title, description, rating, preview, thumb }) => {
-      return `<p>${title}</p>`;
-    })
-    .join('');
-  return markup;
-}
