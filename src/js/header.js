@@ -8,17 +8,15 @@ const header = document.querySelector('.header');
 const mobMenuOpenBtn = document.querySelector('.js-open-menu');
 const mobMenuCloseBtn = document.querySelector('.js-close-menu');
 const mobMenuContainer = document.querySelector('.js-menu-container');
-const modalCloseBtn = document.getElementById('.js-modal-close-btn');
 const basketButton = document.querySelector('.basket-button');
-const modal = document.querySelector('.header-modal');
-const backdrop = document.querySelector('.backdrop');
+
+const body = document.querySelector('body');
 
 mobMenuOpenBtn.addEventListener('click', onOpenMenuClick);
 
 function onOpenMenuClick() {
   if (!mobMenuContainer.classList.contains('is-open')) {
     mobMenuContainer.classList.add('is-open');
-    backdrop.classList.add('is-open');
   }
 }
 
@@ -27,7 +25,6 @@ mobMenuCloseBtn.addEventListener('click', onCloseMenuClick);
 function onCloseMenuClick() {
   if (mobMenuContainer.classList.contains('is-open')) {
     mobMenuContainer.classList.remove('is-open');
-    backdrop.classList.remove('is-open');
   }
 }
 
@@ -40,13 +37,14 @@ const Theme = {
 switcher.addEventListener('change', hendler);
 function hendler() {
   header.classList.toggle(Theme.DARK);
+  body.classList.toggle(Theme.DARK);
 }
 
 mobSwitcher.addEventListener('change', hendler);
 function hendler() {
   mobMenu.classList.toggle(Theme.DARK);
 
-  header.classList.toggle(Theme.DARK);
+  body.classList.toggle(Theme.DARK);
 }
 
 // ------------------МОДАЛКА-------------------
@@ -58,9 +56,6 @@ function onBasketBtnClick() {
     `
 <div class="header-modal">
   <button type="button" class="modal-close-btn js-modal-close-btn">
-    <svg class="modal-icon-close" width="20" height="20">
-      <use href="./images/icons.svg#close1"></use>
-    </svg>
   </button>
   <h2 class="header-modal-title">ORDER NOW</h2>
   
@@ -93,12 +88,22 @@ function onBasketBtnClick() {
     <button class="header-form-btn" type="submit">Send</button>
   </form>
 </div>
-`
+`,
+    { closable: false }
   );
+  document.body.style.overflow = 'hidden';
   instance.show();
-}
 
-modalCloseBtn.addEventListener('click', () => {
-  // modal.classList.add('visually-hidden');
-  instance.style.display = 'none';
-});
+  const modalCloseBtn = document.querySelector('.js-modal-close-btn');
+  const modal = document.querySelector('.header-modal');
+
+  modal.addEventListener('submit', e => {
+    e.preventDefault();
+  });
+
+  modalCloseBtn.addEventListener('click', () => {
+    document.body.style.overflow = 'auto';
+
+    instance.close();
+  });
+}
