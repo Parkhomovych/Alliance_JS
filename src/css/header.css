@@ -268,7 +268,7 @@
 .switcher-check-text::after {
   content: '';
   position: absolute;
-  left: 2px;
+  left: 1px;
 
   width: 18px;
   height: 18px;
@@ -279,7 +279,7 @@
 }
 
 .switcher-check:checked + .switcher-check-text::after {
-  transform: translateX(24px);
+  transform: translateX(26px);
   background-color: var(--whiit-first-color);
 }
 
