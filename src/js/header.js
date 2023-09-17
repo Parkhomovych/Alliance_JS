@@ -34,18 +34,17 @@ const Theme = {
   GREEN: 'green-theme',
 };
 
-switcher.addEventListener('change', hendler);
-function hendler() {
+switcher.addEventListener('change', ()=>{
   header.classList.toggle(Theme.DARK);
   body.classList.toggle(Theme.DARK);
-}
+});
 
-mobSwitcher.addEventListener('change', hendler);
-function hendler() {
+
+mobSwitcher.addEventListener('change', ()=>{
   mobMenu.classList.toggle(Theme.DARK);
-
   body.classList.toggle(Theme.DARK);
-}
+});
+
 
 // ------------------МОДАЛКА-------------------
 
