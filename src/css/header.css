@@ -47,7 +47,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 18px; /* 112.5% */
+  line-height: 1.12; /* 112.5% */
   letter-spacing: -0.64px;
   color: var(--black-second-color);
 }
@@ -424,6 +424,8 @@
 
   .logo {
     font-size: 18px;
+    line-height: 1.11;
+    letter-spacing: -0.72px;
   }
 
   .basket-link {
