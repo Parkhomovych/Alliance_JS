@@ -1,8 +1,7 @@
 .header {
-  padding: 20px 0 0;
+  padding: 20px 0 20px;
   align-content: center;
   color: var(--black-second-color);
-  border: 1px solid black;
 
   transition: background-color var(--time) var(--cubic);
 }
@@ -10,7 +9,6 @@
 .header-container {
   display: flex;
   align-items: center;
-  border: 1px solid red;
 }
 
 /* -----------NAVIGATION----------- */
@@ -86,38 +84,11 @@
 
 /* -----------MOBILE-MENU----------- */
 
-/* .backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background-color: rgba(146, 55, 55, 0.1);
-  transform: translateX(100%);
-  transition: transform var(--time) var(--cubic),
-    background-color var(--time) var(--cubic);
-}
-
-.backdrop.is-open {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  /* overflow: scroll; */
-/* background-color: rgba(0, 0, 0, 0.5);
-  transform: translateX(0);
-
-  transition: transform var(--time) var(--cubic),
-    background-color var(--time) var(--cubic);
-/* } */
-
 .menu-container {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: index 999;
+  z-index: 9;
 
   width: 200px;
   height: 100vh;
@@ -134,7 +105,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: index 999;
+  z-index: index 9;
 
   width: 200px;
   height: 100vh;
@@ -346,7 +317,7 @@
   border-radius: 15px;
 
   margin: 0 auto;
-  z-index: 9988;
+  z-index: 9;
 }
 
 .header-modal-title {
@@ -410,15 +381,8 @@
   background: var(--breen-color);
 }
 
-.modal-icon-close {
-  stroke: var(--black-second-color);
-
-  transition: stroke var(--time) var(--cubic),
-    transform var(--time) var(--cubic);
-}
-
-.modal-icon-close:hover,
-.modal-icon-close:focus {
+.modal-close-btn:hover,
+.modal-close-btn:focus {
   stroke: var(--breen-color);
   transform: rotate(180deg);
 }
@@ -430,6 +394,15 @@
   position: absolute;
   top: 14px;
   right: 14px;
+  width: 20px;
+  height: 20px;
+  background-image: url('../images/close-black1.svg');
+  background-size: cover;
+  background-position: center center;
+  stroke: var(--black-second-color);
+
+  transition: stroke var(--time) var(--cubic),
+    transform var(--time) var(--cubic);
 }
 
 /* -----------MEDIA----------- */
@@ -458,7 +431,7 @@
   }
 
   .header {
-    padding: 28px 0 0;
+    padding: 28px 0 28px;
   }
 
   .header-modal {
@@ -508,6 +481,6 @@
 
 @media screen and (min-width: 1280px) {
   .header {
-    padding: 40px 0 0;
+    padding: 40px 0 40px;
   }
 }
