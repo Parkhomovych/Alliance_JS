@@ -1,5 +1,6 @@
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/dist/basicLightbox.min.css';
 
 const switcher = document.querySelector('.switcher-check');
 const mobSwitcher = document.querySelector('.mob-switcher-check');
@@ -34,17 +35,15 @@ const Theme = {
   GREEN: 'green-theme',
 };
 
-switcher.addEventListener('change', ()=>{
+switcher.addEventListener('change', () => {
   header.classList.toggle(Theme.DARK);
   body.classList.toggle(Theme.DARK);
 });
 
-
-mobSwitcher.addEventListener('change', ()=>{
+mobSwitcher.addEventListener('change', () => {
   mobMenu.classList.toggle(Theme.DARK);
   body.classList.toggle(Theme.DARK);
 });
-
 
 // ------------------МОДАЛКА-------------------
 
