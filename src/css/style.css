@@ -2,6 +2,8 @@
 @import url(./scrollbar.css);
 @import url(./header.css);
 @import url(./markup-card.css);
+@import url(./favorite.css);
+
 /* Fonst */
 @font-face {
   font-family: 'Inter';
@@ -27,6 +29,7 @@
   font-weight: 600;
   font-display: swap;
 }
+
 /* Fonts */
 :root {
   --black-firs-color: #000000;
