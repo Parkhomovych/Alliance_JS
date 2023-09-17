@@ -1,16 +1,104 @@
-const switcher = document.querySelector('.check');
+const basicLightbox = require('basiclightbox');
+import * as basicLightbox from 'basiclightbox';
+
+const switcher = document.querySelector('.switcher-check');
+const mobSwitcher = document.querySelector('.mob-switcher-check');
+const mobMenu = document.querySelector('.js-menu-container');
 const header = document.querySelector('.header');
+const mobMenuOpenBtn = document.querySelector('.js-open-menu');
+const mobMenuCloseBtn = document.querySelector('.js-close-menu');
+const mobMenuContainer = document.querySelector('.js-menu-container');
+const modalCloseBtn = document.getElementById('.js-modal-close-btn');
+const basketButton = document.querySelector('.basket-button');
+const modal = document.querySelector('.header-modal');
+const backdrop = document.querySelector('.backdrop');
+
+mobMenuOpenBtn.addEventListener('click', onOpenMenuClick);
+
+function onOpenMenuClick() {
+  if (!mobMenuContainer.classList.contains('is-open')) {
+    mobMenuContainer.classList.add('is-open');
+    backdrop.classList.add('is-open');
+  }
+}
+
+mobMenuCloseBtn.addEventListener('click', onCloseMenuClick);
+
+function onCloseMenuClick() {
+  if (mobMenuContainer.classList.contains('is-open')) {
+    mobMenuContainer.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+  }
+}
+
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
+  GREEN: 'green-theme',
 };
+
 switcher.addEventListener('change', hendler);
-function hendler(evt) {
-  if (!evt.currentTarget.checked) {
-    header.classList.add(Theme.LIGHT);
-    header.classList.remove(Theme.DARK);
-  } else {
-    header.classList.add(Theme.DARK);
-    header.classList.remove(Theme.LIGHT);
-  }
+function hendler() {
+  header.classList.toggle(Theme.DARK);
 }
+
+mobSwitcher.addEventListener('change', hendler);
+function hendler() {
+  mobMenu.classList.toggle(Theme.DARK);
+
+  header.classList.toggle(Theme.DARK);
+}
+
+// ------------------МОДАЛКА-------------------
+
+basketButton.addEventListener('click', onBasketBtnClick);
+
+function onBasketBtnClick() {
+  let instance = basicLightbox.create(
+    `
+<div class="header-modal">
+  <button type="button" class="modal-close-btn js-modal-close-btn">
+    <svg class="modal-icon-close" width="20" height="20">
+      <use href="./images/icons.svg#close1"></use>
+    </svg>
+  </button>
+  <h2 class="header-modal-title">ORDER NOW</h2>
+  
+  <form class="header-form" action="submit">
+  <label class="header-form-label" for="name">Name</label>
+  <input class="header-form-input" type="text" name="name" id="name" required />
+  <label class="header-form-label" for="phone">Phone number</label>
+  <input
+    class="header-form-input"
+    type="tel"
+    name="phone"
+    id="phone"
+    required
+  />
+  <label class="header-form-label" for="email">Email</label>
+  <input
+    class="header-form-input"
+    type="email"
+    name="email"
+    id="email"
+    required
+  />
+  <label class="header-form-label" for="comment">Comment </label>
+  <textarea
+    id="comment"
+    class="header-form-input header-form-comment"
+    name="comment"
+    rows="5"
+  ></textarea>
+    <button class="header-form-btn" type="submit">Send</button>
+  </form>
+</div>
+`
+  );
+  instance.show();
+}
+
+modalCloseBtn.addEventListener('click', () => {
+  // modal.classList.add('visually-hidden');
+  instance.style.display = 'none';
+});
