@@ -8,4 +8,5 @@ import './js/hearts/heartsFill';
 import './js/categories';
 import './js/hero';
 import './js/swiper';
+import './js/filter'
 import './js/pagination'
