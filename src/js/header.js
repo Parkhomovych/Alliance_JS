@@ -34,17 +34,48 @@ const Theme = {
   GREEN: 'green-theme',
 };
 
-switcher.addEventListener('change', ()=>{
-  header.classList.toggle(Theme.DARK);
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  header.classList.add(savedTheme);
+  body.classList.add(savedTheme);
+}
+
+switcher.addEventListener('change', () => {
+  // header.classList.toggle(Theme.LIGHT);
   body.classList.toggle(Theme.DARK);
+
+  if (!body.classList.contains(Theme.LIGHT)) {
+    header.classList.add(Theme.DARK);
+    body.classList.add(Theme.DARK);
+  } else {
+    header.classList.remove(Theme.DARK);
+    body.classList.remove(Theme.DARK);
+  }
+
+  // localStorage.setItem(
+  //   'theme',
+  //   header.classList.contains(Theme.DARK) ? Theme.DARK : Theme.LIGHT
+  // );
 });
 
+mobSwitcher.addEventListener('change', () => {
+  // header.classList.toggle(Theme.LIGHT);
+  body.classList.toggle(Theme.LIGHT);
 
-mobSwitcher.addEventListener('change', ()=>{
-  mobMenu.classList.toggle(Theme.DARK);
-  body.classList.toggle(Theme.DARK);
+  if (!body.classList.contains(Theme.LIGHT)) {
+    header.classList.add(Theme.DARK);
+    // body.classList.add(Theme.DARK);
+    mobMenu.classList.add(Theme.DARK);
+  } else {
+    header.classList.remove(Theme.DARK);
+    // body.classList.remove(Theme.DARK);
+    mobMenu.classList.remove(Theme.DARK);
+  }
+  // localStorage.setItem(
+  //   'theme',
+  //   mobMenu.classList.contains(Theme.DARK) ? Theme.DARK : Theme.LIGHT
+  // );
 });
-
 
 // ------------------МОДАЛКА-------------------
 

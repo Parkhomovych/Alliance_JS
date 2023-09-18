@@ -1,3 +1,7 @@
+body {
+  transition: background-color var(--time) var(--cubic);
+}
+
 .header {
   padding: 20px 0 20px;
   align-content: center;
@@ -105,7 +109,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: index 9;
+  z-index: 9;
 
   width: 200px;
   height: 100vh;
@@ -288,19 +292,20 @@
 }
 
 .light-theme {
-  background-color: var(--whiit-first-color);
+  background-color: var(--white-second-color);
   color: var(--black-second-color);
+  stroke: var(--black-second-color);
 }
 
 .dark-theme {
-  background-color: var(--black-second-color);
+  background-color: #161616;
   color: var(--white-second-color);
   stroke: var(--white-second-color);
 }
 
 .green-theme {
   background-color: var(--breen-color);
-  color: var(--whiit-first-color);
+  color: var(--white-second-color);
 }
 
 /*---------- MODAL WINDOW --------*/
@@ -313,7 +318,7 @@
   width: 295px;
   height: 580px;
 
-  background-color: var(--whiit-first-color);
+  background-color: var(--white-second-color);
   border-radius: 15px;
 
   margin: 0 auto;
