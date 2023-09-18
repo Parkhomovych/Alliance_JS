@@ -129,14 +129,14 @@
 .info {
   position: absolute;
   z-index: 4;
-  max-width: 303px;
+  width: 303px;
 
   bottom: 16px;
   left: 16px;
 }
 @media only screen and (min-width: 768px) {
   .info {
-    max-width: 208px;
+    width: 208px;
   }
 }
 

@@ -111,7 +111,6 @@ function reShowSearchRecipes() {
 // встановлення слухача пагінації, відображення її
 function paginationListenerOn(totalPages) {
   paginationRecipes.reset(totalPages * perPageRecipes);
-  console.log('pag---', totalPages);
   if (totalPages > 1) {
     paginationRecipes.on('afterMove', onMovePagination);
     refs.paginationShow.classList.remove('is-hidden');
