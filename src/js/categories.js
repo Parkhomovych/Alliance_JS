@@ -23,8 +23,6 @@ const refs = {
   popular: document.querySelector('.popular-change-js'),
   paginationShow: document.querySelector('#tui-pagination-container'),
   pagination: document.getElementById('tui-pagination-container'),
-
-  recepies: document.querySelector('.recepies-js'),
 };
 
 // налаштування початкових значень в залежносты від ширини вьюпорту
@@ -53,38 +51,53 @@ refs.allCategiries.addEventListener('click', onClickAllCategories);
 refs.categories.addEventListener('click', onClickCategories);
 refs.popular.addEventListener('click', onClickPopular);
 
-showSearchRecipes();
+// прибирання слухачів подій
+window.addEventListener("unload", function () {
+refs.allCategiries.removeEventListener('click', onClickAllCategories);
+refs.categories.removeEventListener('click', onClickCategories);
+refs.popular.removeEventListener('click', onClickPopular);
+paginationRecipes.off('afterMove', onMovePagination);
+  
+});
 
 // формування переліку категорій
 searchCategories()
-  .then(categories => {
-    refs.categories.insertAdjacentHTML(
-      'beforeend',
-      makeMarkupCategories(categories)
+.then(categories => {
+  refs.categories.insertAdjacentHTML(
+    'beforeend',
+    makeMarkupCategories(categories)
     );
   })
   .catch(() => {});
 
-// формування розмітки переліку категорій
-function makeMarkupCategories(obj) {
-  const { data } = obj;
-  const markup = data
-    .map(({ name }) => {
-      return `<li class="categories-list-js"><button type="button" data-set="${name}" class="categories-btn-js">${name}</button></li>`;
-    })
-    .join('');
-  return markup;
-}
+//перша відмальовка блоку рецептів  
+showSearchRecipes();
 
 // запит переліку популярних рецептів
 searchRecipesPopular()
-  .then(popular => {
-    refs.popular.insertAdjacentHTML(
-      'beforeend',
-      makeMarkupPopular(popular.data)
-    );
-  })
-  .catch(() => {});
+.then(popular => {
+  refs.popular.insertAdjacentHTML(
+    'beforeend',
+    makeMarkupPopular(popular.data)
+  );
+  // слухачі подій на популярних рецептах
+  const popularBtn = refs.popular.querySelectorAll(".popular-button-js");
+  popularBtn.forEach((elem) => {
+    elem.addEventListener('click', onClickPopular)
+  });
+})
+.catch(() => {});
+  
+// формування розмітки переліку категорій
+ function makeMarkupCategories(obj) {
+   const { data } = obj;
+   const markup = data
+      .map(({ name }) => {
+        return `<li class="categories-list-js"><button type="button" data-set="${name}" class="categories-btn-js">${name}</button></li>`;
+      })
+      .join('');
+    return markup;
+};
 
 // перемальовка блоку рецептів після зміни параметрів запиту з 1 сторынки з перемальовкою пагінації
 
@@ -97,16 +110,16 @@ function showSearchRecipes() {
       paginationListenerOn(recipes.data.totalPages);
     })
     .catch(() => {});
-}
+};
 
-// перемальовка блоку рецептів після змщення пагінації (функцію відмальовкиmake MarkupRecipes замінити на Кірину)
+// перемальовка блоку рецептів після змщення пагінації 
 function reShowSearchRecipes() {
   searchRecipesFlexFilter(paramsRecepies)
     .then(recipes => {
       renderMarkup(recipes);
     })
     .catch(() => {});
-}
+};
 
 // встановлення слухача пагінації, відображення її
 function paginationListenerOn(totalPages) {
@@ -118,21 +131,21 @@ function paginationListenerOn(totalPages) {
   } else {
     if (!refs.paginationShow.classList.contains('is-hidden')) {
       refs.paginationShow.classList.add('is-hidden');
-    }
-  }
+    };
+  };
   if (!totalPages) {
     Notiflix.Notify.info(
       'Вибачте, згідно параметрів пошуку рецептів не знайдено'
     );
-  }
-}
+  };
+};
 
 // перемальовка рецептів при зміщенні пагінації
 function onMovePagination() {
   currentPage = paginationRecipes.getCurrentPage();
   changeParams('page', currentPage);
   reShowSearchRecipes();
-}
+};
 
 // вибір "всіх категорій" по натисканню "AllCategories"
 function onClickAllCategories() {
@@ -140,73 +153,70 @@ function onClickAllCategories() {
   refs.allCategiries.classList.add('is-active');
   removeParams('category');
   showSearchRecipes();
-}
+};
 
 // вибір конкретної категорії
 function onClickCategories(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
-    console.log(evt.target.nodeName);
     return;
-  }
+  };
   unselectAllCategories();
   unselectCategories();
   evt.target.classList.add('is-active');
   const selectedCategories = evt.target.dataset.set;
   changeParams('category', selectedCategories);
   showSearchRecipes();
-}
+};
 
 // знімаємо помітку з кнопки "AllCategories"
 function unselectAllCategories() {
   if (refs.allCategiries.classList.contains('is-active')) {
     refs.allCategiries.classList.remove('is-active');
-  }
-}
+  };
+};
 
 // знімаємо помітку з активної категорії
 function unselectCategories() {
   const oldSelect = refs.categories.querySelector('.is-active');
   if (oldSelect) {
     oldSelect.classList.remove('is-active');
-  }
-}
+  };
+};
 
 // обробка вибору популярного рецепту
 function onClickPopular(evt) {
-  if (evt.target.nodeName !== 'BUTTON') {
-    console.log(evt.target.nodeName);
+  if (evt.currentTarget.nodeName !== 'BUTTON') {
     return;
-  }
-  const selectedId = evt.target.dataset.set;
+  };
+  const selectedId = evt.currentTarget.dataset.set;
   console.log(selectedId);
-}
+};
 
 // додавання/зміна параметру в об'єкт для пошуку рецепту
 function changeParams(key, value) {
   if (paramsRecepies.has(key)) {
     paramsRecepies.delete(key);
-  }
+  };
   paramsRecepies.append(key, value);
-}
+};
 
 // вилучення параметра в об'єкті пошуку рецепту
 function removeParams(key) {
   while (paramsRecepies.has(key)) {
     paramsRecepies.delete(key);
-  }
-  console.log(paramsRecepies.toString());
-}
+  };
+};
 
 // кількість карток реціптів в залежності від вьюпорту
 function getPerPageRecipes() {
   if (window.innerWidth < 768) {
     return 6;
-  }
+  };
   if (window.innerWidth < 1280) {
     return 8;
-  }
+  };
   return 9;
-}
+};
 
 // розмітка блоку популярних рецептів
 function makeMarkupPopular(arr) {
