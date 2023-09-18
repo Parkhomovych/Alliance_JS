@@ -34,6 +34,7 @@ const searchRecipesFilter = async (
   const response = await axios.get(`${URL}${resource.recipes}?${params}`);
   return response;
 };
+
 window.addEventListener('load', handler);
 function handler() {
   searchRecipesFilter()
@@ -43,7 +44,10 @@ function handler() {
     });
 }
 function renderMarkup(res) {
-  elem.innerHTML = createMarkup(res.data.results);
+  if (elem) {
+    elem.innerHTML = createMarkup(res.data.results);
+  }
+
   renderStar();
 }
 
