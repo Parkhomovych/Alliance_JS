@@ -38,6 +38,7 @@ const searchRecipesFilter = async (
   const response = await axios.get(`${URL}${resource.recipes}?${params}`);
   return response;
 };
+
 window.addEventListener('load', handler);
 
 function handler() {
@@ -49,24 +50,26 @@ function handler() {
 }
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res.data.results);
-  renderStar();
-  const btnSeeRecipe = document.querySelectorAll('.info-btn');
-console.log(res.data.results);
+  renderStar()
 }
-  
+
 function renderStar() {
-    const box = document.querySelectorAll(".info-div");
-  const stars = document.querySelectorAll(".box-star");
+  const box = document.querySelectorAll('.info-div');
+  const stars = document.querySelectorAll('.box-star');
   stars.forEach(element => {
     const p = element.previousElementSibling;
+  
     const rating = Math.round(p.textContent);
+  
     const stars = [...element.children];
+    console.log(stars);
+
     stars.forEach((element, index) => {
-          if (index < rating) {
-        element.classList.add("yellow-star")
+      if (index < rating) {
+        element.classList.add('yellow-star');
       }
     });
-})
+  });
 }
 
 function createMarkup(params) {
@@ -125,7 +128,7 @@ function createMarkup(params) {
     .join('');
 }
 
-export { renderMarkup };
+export { renderMarkup, createMarkup };
 
 
 //  Модалка з рецептом

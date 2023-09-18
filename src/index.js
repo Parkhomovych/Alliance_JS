@@ -5,4 +5,5 @@ import './js/createAPI';
 import './js/localStorageJSON';
 import './js/hearts/cardHearts';
 import './js/hearts/heartsFill';
-
+import './js/categories'
+import './js/markup-card'
