@@ -2,6 +2,12 @@
 @import url(./scrollbar.css);
 @import url(./hero.css);
 @import url(./swiper.css);
+@import url(./header.css);
+@import url(./markup-card.css);
+@import url(./favorite.css);
+@import url(./markup-card.css);
+@import url(./categories.css);
+
 
 /* Fonst */
 @font-face {
@@ -28,6 +34,7 @@
   font-weight: 600;
   font-display: swap;
 }
+
 /* Fonts */
 :root {
   --black-firs-color: #000000;
@@ -36,6 +43,9 @@
   --white-second-color: #f8f8f8;
   --grey-color: #b4b4b4;
   --breen-color: #9bb537;
+
+  --time: 350ms;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 html {
   scroll-behavior: smooth;

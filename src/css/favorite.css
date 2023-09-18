@@ -1,0 +1,80 @@
+.section-fav-hero {
+  margin-top: 52px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .section-fav-hero {
+    margin-top: 50px;
+    margin-bottom: 64px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .section-fav-hero {
+    margin-top: 40px;
+  }
+}
+.mob-hero-img {
+  width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .mob-hero-img {
+    height: 356px;
+  }
+}
+.favorite-image {
+  display: block;
+  margin: 0;
+}
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+@media screen and (min-width: 768px) {
+  .categories-list {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .favorite-render-cards {
+    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite-render-cards {
+    gap: 32px 16px;
+  }
+}
+.no-recipe-content {
+  display: flex;
+  flex-direction: column;
+}
+.fav-icon {
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+@media screen and (min-width: 768px) {
+  .fav-icon {
+    width: 97px;
+    height: 83px;
+  }
+}
+.no-recipes {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.29;
+  margin: 0 auto;
+  /* padding-bottom: 100px; */
+}
+@media screen and (min-width: 768px) {
+  .no-recipes {
+    width: 481px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

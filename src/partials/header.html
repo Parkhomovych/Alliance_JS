@@ -1,0 +1,77 @@
+<header class="header">
+  <div class="container header-container">
+    <ul class="navigation">
+      <li class="nav-item">
+        <a class="nav-item-link link" href="./index.html">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-item-link link" href="./favorite.html">Favorites</a>
+      </li>
+    </ul>
+
+    <a class="logo-link link" href="./index.html">
+      <p class="logo"><span class="logo-green">tasty</span>treats.</p>
+    </a>
+
+    <button type="button" class="basket-button button">
+      <!-- <a href="tel:+14251234563"> -->
+      <svg class="basket-icon" width="24" height="24">
+        <use href="./images/icons.svg#basket"></use>
+      </svg>
+      <!-- </a> -->
+    </button>
+
+    <button type="button" class="menu-toggle-open js-open-menu">
+      <svg class="menu-toggle-icon" width="32" height="32">
+        <use href="./images/icons.svg#burger"></use>
+      </svg>
+    </button>
+
+    <!----------------THEME SWITCHER-------------->
+
+    <div class="switcher-wrapper">
+      <input
+        type="checkbox"
+        class="switcher-check visually-hidden"
+        id="switcher-check"
+        name="checkbox"
+      />
+      <label for="switcher-check" class="switcher-check-text"></label>
+    </div>
+
+    <!----------------MOB-Menu-------------->
+    <div class="backdrop">
+      <div class="menu-container js-menu-container" id="mob-menu">
+        <button type="button" class="menu-toggle-close js-close-menu">
+          <svg class="menu-toggle-icon-close" width="32" height="32">
+            <use href="./images/icons.svg#close"></use>
+          </svg>
+        </button>
+        <ul class="mob-menu-list">
+          <li class="mob-menu-item">
+            <a class="mob-menu-link" href="./index.html"> Home </a>
+          </li>
+          <li class="mob-menu-item">
+            <a class="mob-menu-link" href="./favorite.html"> Favorites </a>
+          </li>
+        </ul>
+
+        <!----------------MOB THEME SWITCHER-------------->
+
+        <div class="mob-switcher-wrapper">
+          <input
+            type="checkbox"
+            class="mob-switcher-check visually-hidden"
+            id="mob-switcher-check"
+            name="mob-checkbox"
+          />
+          <label
+            for="mob-switcher-check"
+            class="mob-switcher-check-text"
+          ></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
