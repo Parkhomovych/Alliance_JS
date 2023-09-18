@@ -6,6 +6,7 @@
 @import url(./markup-card.css);
 @import url(./categories.css);
 @import url(./pagination.css);
+@import url(./filter.css);
 
 /* Fonst */
 @font-face {

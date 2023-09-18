@@ -7,3 +7,4 @@ import './js/hearts/cardHearts';
 import './js/hearts/heartsFill';
 import './js/categories'
 import './js/markup-card'
+import './js/filter'
