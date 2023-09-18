@@ -31,7 +31,9 @@ elements.area.addEventListener('change', handlerArea);
 elements.ingredients.addEventListener('change', handlerIngredients);
 
 function handlerForm(evt) {
-  evt.preventDefault();
+    evt.preventDefault();
+    const category = elements.category.textContent;
+    console.log(category);
   searchRecipesFilter()
     .then(result => {})
     .catch(err => {});

@@ -6,7 +6,6 @@
   color: rgba(5, 5, 5, 0.5);
 }
 .filter-select {
-  appearance: none;
 }
 
 .filter-label {
@@ -16,7 +15,7 @@
 .filter-input {
   display: inline-flex;
   width: 335px;
-  padding: 14px 18px 14px 48px;
+  padding: 10px 18px 10px 48px;
 
   color: rgba(5, 5, 5, 0.5);
   font-size: 14px;
@@ -48,13 +47,14 @@
   top: 50%;
   left: 18px;
   transform: translateY(-50%);
+  z-index: 0;
 }
 
 .select-time {
   display: flex;
   width: 160px;
   height: 46px;
-  padding: 14px 18px;
+  padding: 10px 18px;
 
   color: rgba(5, 5, 5, 0.5);
   border-radius: 15px;
@@ -67,7 +67,7 @@
   width: 160px;
   height: 46px;
 
-  padding: 14px 18px;
+  padding: 10px 18px;
   color: rgba(5, 5, 5, 0.5);
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -78,7 +78,7 @@
   display: flex;
   width: 188px;
   height: 46px;
-  padding: 14px 18px;
+  padding: 10px 18px;
 
   color: rgba(5, 5, 5, 0.5);
   border-radius: 15px;
@@ -185,6 +185,4 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .form-search {
-  }
 }
