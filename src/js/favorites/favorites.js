@@ -1,5 +1,5 @@
-import favoriTesCards from "../../templates_favorit/favoriteCards.hbs";
-import favoritesCategory from "../../templates_favorit/favoriteCategories.hbs";
+import favoriTesCards from "../templates_favorit/favoriteCards.hbs";
+import favoritesCategory from "../templates_favorit/favoriteCategories.hbs";
 import { fillStars } from "../hearts/heartsFill";
 import { cardHearts } from "../hearts/cardHearts";
 import setLocalStorageF from "../setLokaleStorageFavorite";
