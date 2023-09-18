@@ -34,22 +34,22 @@ const Theme = {
   GREEN: 'green-theme',
 };
 
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-  header.classList.add(savedTheme);
-  body.classList.add(savedTheme);
-}
+// const savedTheme = localStorage.getItem('theme');
+// if (savedTheme) {
+//   header.classList.add(savedTheme);
+//   body.classList.add(savedTheme);
+// }
 
 switcher.addEventListener('change', () => {
-  // header.classList.toggle(Theme.LIGHT);
   body.classList.toggle(Theme.DARK);
+  header.classList.toggle(Theme.LIGHT);
 
   if (!body.classList.contains(Theme.LIGHT)) {
-    header.classList.add(Theme.DARK);
     body.classList.add(Theme.DARK);
+    header.classList.add(Theme.DARK);
   } else {
-    header.classList.remove(Theme.DARK);
     body.classList.remove(Theme.DARK);
+    header.classList.remove(Theme.DARK);
   }
 
   // localStorage.setItem(
@@ -59,16 +59,16 @@ switcher.addEventListener('change', () => {
 });
 
 mobSwitcher.addEventListener('change', () => {
-  // header.classList.toggle(Theme.LIGHT);
   body.classList.toggle(Theme.LIGHT);
+  header.classList.toggle(Theme.LIGHT);
 
   if (!body.classList.contains(Theme.LIGHT)) {
+    body.classList.add(Theme.DARK);
     header.classList.add(Theme.DARK);
-    // body.classList.add(Theme.DARK);
     mobMenu.classList.add(Theme.DARK);
   } else {
+    body.classList.remove(Theme.DARK);
     header.classList.remove(Theme.DARK);
-    // body.classList.remove(Theme.DARK);
     mobMenu.classList.remove(Theme.DARK);
   }
   // localStorage.setItem(
