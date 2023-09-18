@@ -26,6 +26,7 @@
   .card-list {
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: flex-start;
     gap: 16px;
   }
 }
