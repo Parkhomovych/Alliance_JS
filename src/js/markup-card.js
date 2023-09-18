@@ -50,6 +50,7 @@ function handler() {
 }
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res.data.results);
+  console.log(res.data.results);
   renderStar()
 }
 
@@ -131,7 +132,7 @@ export { renderMarkup, createMarkup };
 //  Модалка з рецептом
 
 
-// const btnEx = document.querySelector('.example');
+
 // btnEx.addEventListener('click', handlerSeeRecipe);
 
 // function handlerSeeRecipe() {
