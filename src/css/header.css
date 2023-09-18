@@ -100,7 +100,11 @@
   transition: transform var(--time) var(--cubic),
     background-color var(--time) var(--cubic);
 }
-
+@media only screen and (min-width: 768px) {
+  .menu-container {
+    display: none;
+  }
+}
 .menu-container.is-open {
   position: fixed;
   top: 0;

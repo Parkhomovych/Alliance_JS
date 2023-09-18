@@ -53,7 +53,22 @@ function renderMarkup(res) {
   console.log(res.data.results);
   renderStar()
 }
+const config = { // параметри MutationObserver
+  childList: true,
+  subtree: true,
+};
+const observer = new MutationObserver(testFn); // створюємо екземпляр класу MutationObserver
+function testFn() {
+  const btnAll = document.querySelectorAll('.info-btn');// витягуємо всі кнопки
 
+  btnAll.forEach(btn => {
+    btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
+  });
+}
+observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
+function openRecipeModal(){
+  console.log('1');
+}
 function renderStar() {
   const box = document.querySelectorAll('.info-div');
   const stars = document.querySelectorAll('.box-star');
@@ -115,7 +130,7 @@ function createMarkup(params) {
                 </svg>
                 </div>
           </div>
-              <button type="button" class="info-btn">
+              <button id='${elem._id}'  class="info-btn">
                  See recipe
               </button>
               </div>
