@@ -6,6 +6,10 @@
 // }
 
 import axios from 'axios';
+// Імпорт для модалки
+const basicLightbox = require('basiclightbox');
+import * as basicLightbox from 'basiclightbox';
+import { searchRecipesId } from './createAPI';
 
 const URL = 'https://tasty-treats-backend.p.goit.global/api';
 const elem = document.querySelector('.card-list');
@@ -35,6 +39,7 @@ const searchRecipesFilter = async (
   return response;
 };
 window.addEventListener('load', handler);
+
 function handler() {
   searchRecipesFilter()
     .then(renderMarkup)
@@ -44,7 +49,9 @@ function handler() {
 }
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res.data.results);
-  renderStar()
+  renderStar();
+  const btnSeeRecipe = document.querySelectorAll('.info-btn');
+console.log(res.data.results);
 }
   
 function renderStar() {
@@ -52,12 +59,8 @@ function renderStar() {
   const stars = document.querySelectorAll(".box-star");
   stars.forEach(element => {
     const p = element.previousElementSibling;
-  
     const rating = Math.round(p.textContent);
-  
     const stars = [...element.children];
-    console.log(stars);
-
     stars.forEach((element, index) => {
           if (index < rating) {
         element.classList.add("yellow-star")
@@ -110,7 +113,7 @@ function createMarkup(params) {
                 </svg>
                 </div>
           </div>
-              <button class="info-btn">
+              <button type="button" class="info-btn">
                  See recipe
               </button>
               </div>
@@ -123,3 +126,80 @@ function createMarkup(params) {
 }
 
 export { renderMarkup };
+
+
+//  Модалка з рецептом
+
+
+
+// btnSeeRecipe.addEventListener('click', handlerSeeRecipe);
+
+// function handlerSeeRecipe() {
+//   searchRecipesId
+//     .then(markupModalRecipe(res.data.results))
+//     .catch(error => {
+//       console.log(error);
+//     });
+// }
+
+// function markupModalRecipe(elem) {
+//   let modalREcipe = basicLightbox.create(
+//     `
+// <div class="card-modal">
+//   <button type="button" class="modal-close-btn js-card-close-btn"></button>
+//   <video src="${elem.video || elem.preview}" class="modal-card-video"></video>
+//   <h2 class="modal-card-title">${elem.title}</h2>
+//   <div class="info-div">
+//     <p class="info-rating">${elem.rating.toFixed(1)}</p>
+//     <div class="box-star">
+//       <svg class="info-star" viewBox="0 0 32 32">
+//         <path
+//           d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+//         ></path>
+//       </svg>
+//       <svg class="info-star" viewBox="0 0 32 32">
+//         <path
+//           d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+//         ></path>
+//       </svg>
+//       <svg class="info-star" viewBox="0 0 32 32">
+//         <path
+//           d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+//         ></path>
+//       </svg>
+//       <svg class="info-star" viewBox="0 0 32 32">
+//         <path
+//           d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+//         ></path>
+//       </svg>
+//       <svg class="info-star" viewBox="0 0 32 32">
+//         <path
+//           d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+//         ></path>
+//       </svg>
+//     </div>
+//     <p class="info-time">${elem.time}</p>
+//   </div>
+//   <ul class="modal-card-list">
+//     <li class="modal-card-item">${elem.ingredients}</li>
+//   </ul>
+//   <ul class="modal-card-tags">
+//     <li class="modal-card-tag">${elem.tag}</li>
+//   </ul>
+//   <p class="modal-card-instructions">${elem.instructions}</p>
+//   <button type="button" class="btn-favorite">Add to favorite</button>
+// </div>
+// `,
+//     { closable: false }
+//   );
+// document.body.style.overflow = 'hidden';
+//   modalREcipe.show();
+
+//   const modalCardCloseBtn = document.querySelector('.js-card-close-btn')
+  
+//   modalCardCloseBtn.addEventListener('click', () => {
+//     document.body.style.overflow = 'auto';
+
+//     modalREcipe.close();
+//   });
+// }
