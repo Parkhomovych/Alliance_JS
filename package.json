@@ -21,9 +21,12 @@
     "@splidejs/splide": "^4.1.4",
     "axios": "^1.5.0",
     "basiclightbox": "^5.0.4",
+    "handlebars": "^4.7.8",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
+    "parcel-transformer-handlebars": "^1.0.0",
+    "parcel-transformer-hbs": "^1.0.4",
     "simplelightbox": "^2.14.2",
     "swiper": "^10.2.0",
     "tui-pagination": "^3.4.1"
