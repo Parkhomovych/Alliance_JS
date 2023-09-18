@@ -62,8 +62,6 @@ function renderStar() {
     const rating = Math.round(p.textContent);
   
     const stars = [...element.children];
-    console.log(stars);
-
     stars.forEach((element, index) => {
       if (index < rating) {
         element.classList.add('yellow-star');
@@ -130,12 +128,11 @@ function createMarkup(params) {
 
 export { renderMarkup, createMarkup };
 
-
 //  Модалка з рецептом
 
 
-
-// btnSeeRecipe.addEventListener('click', handlerSeeRecipe);
+// const btnEx = document.querySelector('.example');
+// btnEx.addEventListener('click', handlerSeeRecipe);
 
 // function handlerSeeRecipe() {
 //   searchRecipesId
