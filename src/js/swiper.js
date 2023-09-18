@@ -4,8 +4,8 @@
   |============================
 */
 import  Swiper from 'swiper';
-// import { Pagination } from 'swiper/modules';
-// Swiper.use([Pagination]);
+import { Pagination } from 'swiper/modules';
+Swiper.use([Pagination]);
 import 'swiper/swiper-bundle.css';
 
 import getRefs from './hero-refs';

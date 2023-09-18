@@ -1,6 +1,5 @@
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basicLightbox.min.css';
 
 const switcher = document.querySelector('.switcher-check');
 const mobSwitcher = document.querySelector('.mob-switcher-check');
@@ -35,14 +34,47 @@ const Theme = {
   GREEN: 'green-theme',
 };
 
+// const savedTheme = localStorage.getItem('theme');
+// if (savedTheme) {
+//   header.classList.add(savedTheme);
+//   body.classList.add(savedTheme);
+// }
+
 switcher.addEventListener('change', () => {
-  header.classList.toggle(Theme.DARK);
   body.classList.toggle(Theme.DARK);
+  header.classList.toggle(Theme.LIGHT);
+
+  if (!body.classList.contains(Theme.LIGHT)) {
+    body.classList.add(Theme.DARK);
+    header.classList.add(Theme.DARK);
+  } else {
+    body.classList.remove(Theme.DARK);
+    header.classList.remove(Theme.DARK);
+  }
+
+  // localStorage.setItem(
+  //   'theme',
+  //   header.classList.contains(Theme.DARK) ? Theme.DARK : Theme.LIGHT
+  // );
 });
 
 mobSwitcher.addEventListener('change', () => {
-  mobMenu.classList.toggle(Theme.DARK);
-  body.classList.toggle(Theme.DARK);
+  body.classList.toggle(Theme.LIGHT);
+  header.classList.toggle(Theme.LIGHT);
+
+  if (!body.classList.contains(Theme.LIGHT)) {
+    body.classList.add(Theme.DARK);
+    header.classList.add(Theme.DARK);
+    mobMenu.classList.add(Theme.DARK);
+  } else {
+    body.classList.remove(Theme.DARK);
+    header.classList.remove(Theme.DARK);
+    mobMenu.classList.remove(Theme.DARK);
+  }
+  // localStorage.setItem(
+  //   'theme',
+  //   mobMenu.classList.contains(Theme.DARK) ? Theme.DARK : Theme.LIGHT
+  // );
 });
 
 // ------------------МОДАЛКА-------------------

@@ -9,4 +9,3 @@ import './js/categories';
 import './js/markup-card';
 import './js/hero';
 import './js/swiper';
-import './js/pagination';
