@@ -5,8 +5,5 @@ import './js/createAPI';
 import './js/localStorageJSON';
 import './js/hearts/cardHearts';
 import './js/hearts/heartsFill';
-import './js/categories';
-import './js/markup-card';
-import './js/setLokaleStorageFavorite';
-import './js/favorites/favorite';
-import './js/favorites/pagination';
+import './js/categories'
+import './js/markup-card'
