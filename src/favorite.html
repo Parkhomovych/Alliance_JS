@@ -15,7 +15,26 @@
         <!-- MAIN -->
         <div class="section-fav-hero">
           <div class="container">
-           
+            <picture class="favorite-image">
+              <source
+                media="(min-width: 1280px)"
+                srcset="./images/favorite-hero/desktop-favorites-1x.png"
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="./images/favorite-hero/tab-favorites-1x.png"
+              />
+              <source
+                media="(min-width: 375px)"
+                srcset="./images/favorite-hero/mob-favorites-1x.png"
+              />
+              <img
+                class="mob-hero-img"
+                src="/src/images/favorite-hero/mob-favorites-1x.png"
+                alt="Tasty food"
+                loading="lazy"
+              />
+            </picture>
           </div>
         </div>
         <div class="favorite-cards">
