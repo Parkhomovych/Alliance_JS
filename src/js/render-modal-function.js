@@ -28,6 +28,8 @@ function createIngredientsModal(ingredients) {
     };
 
   };
+
+  // Функція для Tags
 function createTagsModal(tags) {
 
     const tagsBox = document.querySelector('.modal-card-tags');
