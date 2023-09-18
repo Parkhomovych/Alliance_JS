@@ -105,3 +105,4 @@ function onBasketBtnClick() {
     instance.close();
   });
 }
+export{onBasketBtnClick}

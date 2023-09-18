@@ -6,6 +6,10 @@
 @import url(./markup-card.css);
 @import url(./categories.css);
 @import url(./pagination.css);
+@import url(./hero.css);
+@import url(./swiper.css);
+@import '../../node_modules/swiper/swiper-bundle.css';
+@import '../../node_modules/swiper/modules/pagination.css';
 
 /* Fonst */
 @font-face {
