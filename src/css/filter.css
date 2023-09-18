@@ -15,6 +15,7 @@
 .filter-input {
   display: inline-flex;
   width: 335px;
+  height: 46px;
   padding: 10px 18px 10px 48px;
 
   color: rgba(5, 5, 5, 0.5);
