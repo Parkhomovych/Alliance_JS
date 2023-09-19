@@ -11,6 +11,7 @@ import {
   searchAddOrders,
   searchRecipesFlexFilter,
 } from './createAPI';
+import { changeParams, removeParams,showSearchRecipes} from './categories'
 
 const elements = {
   form: document.querySelector('.js-form-search'),
@@ -32,17 +33,30 @@ elements.ingredients.addEventListener('change', handlerIngredients);
 
 function handlerForm(evt) {
   evt.preventDefault();
+
+  console.log(category);
+
   searchRecipesFilter()
     .then(result => {})
     .catch(err => {});
 }
 function handlerSearch(evt) {}
 
-function handlerTime(evt) {}
+function handlerTime(evt) {
+  changeParams('time', evt.currentTarget.value);
+  showSearchRecipes();
+}
+  
 
-function handlerArea(evt) {}
+function handlerArea(evt) {
+   changeParams('area', evt.currentTarget.value);
+  showSearchRecipes();
+}
 
-function handlerIngredients(evt) {}
+function handlerIngredients(evt) {
+   changeParams('ingredients', evt.currentTarget.value);
+  showSearchRecipes();
+}
 
 // ❗ Створення відмальовки в DOM Area ❗
 
@@ -68,8 +82,8 @@ searchIngredients()
 function createArea(arr) {
   return arr
     .map(
-      ({ name, _id }) =>
-        `<option class="filter-opt" value="${_id}">${name}</option>`
+      ({ name }) =>
+        `<option class="filter-opt" value="${name}">${name}</option>`
     )
     .join('');
 }
@@ -89,18 +103,21 @@ function createIngredients(arr) {
 
 createTime();
 function createTime() {
-  let currentTime = 0;
+  let markup = "";
 
-  for (let i = 0; i < 32; i += 1) {
-    elements.time.insertAdjacentHTML(
-      'beforeend',
-      `<option class="filter-opt" value="">${(currentTime += 10)}</option>`
-    );
+  for (let time = 0; time < 160; time += 10) {
+    markup +=`<option class="filter-opt" value="${time}">${time}</option>`
   }
+   elements.time.insertAdjacentHTML('beforeend',markup);
 }
 
 // ❗ Створення js-reset-filter-btn ❗
 
 elements.resetBtn.addEventListener('click', handlerReset);
 
-function handlerReset(evt) {}
+function handlerReset(evt) {
+  removeParams('time');
+  removeParams('area');
+  removeParams('ingredients');
+  showSearchRecipes();
+}
