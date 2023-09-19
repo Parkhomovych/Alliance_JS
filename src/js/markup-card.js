@@ -3,7 +3,11 @@ import axios from 'axios';
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
 import { searchRecipesId } from './createAPI';
-import { renderStarModal, createIngredientsModal, createTagsModal } from "./render-modal-function";
+import {
+  renderStarModal,
+  createIngredientsModal,
+  createTagsModal,
+} from './render-modal-function';
 const URL = 'https://tasty-treats-backend.p.goit.global/api';
 const elem = document.querySelector('.card-list');
 const resource = {
@@ -40,7 +44,7 @@ function handler() {
 }
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res.data.results);
-  renderStar()
+  renderStar();
 }
 function renderStar() {
   const stars = document.querySelectorAll('.box-star');
@@ -62,8 +66,9 @@ function createMarkup(params) {
     <li class="card-item">
     <div class="photo-card">
         <div class="photo-thumb">
-          <img class="photo-img" src="${elem.thumb}" alt="${elem.title
-        }" loading="lazy"/>
+          <img class="photo-img" src="${elem.thumb}" alt="${
+        elem.title
+      }" loading="lazy"/>
         </div>
         <button type="button" class="btn-favorite" >
                 <svg class="icon-favorite" width="22" height="22" viewBox="0 0 32 32">
@@ -111,13 +116,14 @@ function createMarkup(params) {
 }
 export { renderMarkup, createMarkup };
 //  Модалка з рецептом
-const config = { // параметри MutationObserver
+const config = {
+  // параметри MutationObserver
   childList: true,
   subtree: true,
 };
 const observer = new MutationObserver(testFn); // створюємо екземпляр класу MutationObserver
 function testFn() {
-  const btnAll = document.querySelectorAll('.info-btn');// витягуємо всі кнопки
+  const btnAll = document.querySelectorAll('.info-btn'); // витягуємо всі кнопки
   btnAll.forEach(btn => {
     btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
   });
@@ -126,22 +132,42 @@ observer.observe(elem, config); // виклик обзервера(елемен�
 function openRecipeModal(e) {
   const btn = e.target.id;
   searchRecipesId(btn)
-    .then(markupModalRecipe)
+    .then(res => {
+      markupModalRecipe(res)
+      const simple = document.querySelector('.basicLightbox')
+      simple.classList.add('correct-recipe')
+    })
+
     .catch(error => {
       console.log(error);
     });
-};
+}
 function markupModalRecipe(elem) {
-  const { data: { title, youtube, thumb, rating, time, ingredients, tags, instructions
-  } } = elem;
-// Заміна шляху до відео youtube
+  const {
+    data: {
+      title,
+      youtube,
+      thumb,
+      rating,
+      time,
+      ingredients,
+      tags,
+      instructions,
+    },
+  } = elem;
+  // Заміна шляху до відео youtube
   const videoBackend = youtube;
-  const changeHttpVideo = videoBackend.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+  const changeHttpVideo = videoBackend.replace(
+    'https://www.youtube.com/watch?v=',
+    'https://www.youtube.com/embed/'
+  );
   let instance = basicLightbox.create(
     `<div class="card-modal">
   <button type="button" class="modal-close-btn js-card-close-btn"></button>
   <iframe id="player" class="modal-card-video"
-  src="${changeHttpVideo || thumb}" style="border: none" allowfullscreen title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+  src="${
+    changeHttpVideo || thumb
+  }" style="border: none" allowfullscreen title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
   <h2 class="modal-card-title">${title}</h2>
   <div class="info-div-modal">
     <p class="info-rating grey">${rating.toFixed(1)}</p>
@@ -185,7 +211,7 @@ function markupModalRecipe(elem) {
     { closable: true }
   );
   instance.show();
-// Функції розмітки та рейтингу модалки
+  // Функції розмітки та рейтингу модалки
   createTagsModal(tags);
   createIngredientsModal(ingredients);
   renderStarModal(rating);
