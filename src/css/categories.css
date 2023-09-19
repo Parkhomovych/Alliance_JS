@@ -37,6 +37,7 @@
 
 @media only screen and (min-width: 768px) {
   .categories-btn-all {
+    margin-top: 26px;
     margin-bottom: 30px;
     font-size: 18px;
   }
@@ -101,6 +102,7 @@
 
 .is-active {
   color: var(--breen-color);
+
 }
 
 .is-hidden {

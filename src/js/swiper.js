@@ -4,10 +4,9 @@
   |============================
 */
 import  Swiper from 'swiper';
-// import { Pagination } from 'swiper/modules';
-// Swiper.use([Pagination]);
+import { Pagination } from 'swiper/modules';
+Swiper.use([Pagination]);
 import 'swiper/swiper-bundle.css';
-
 import getRefs from './hero-refs';
 const refs = getRefs();
 
@@ -24,5 +23,4 @@ const swiper = new Swiper(refs.swiperJs, {
   noSwipingClass: "no-swipe",
   speed:700,
   spaceBetween:16,
-
   });
