@@ -41,12 +41,16 @@ if (storedData) {
   length = storedData.length;
 }
 
-const container = document.getElementById('pagination');
+const container = document.getElementById('tui-pagination-container');
+
+// налаштування початкових значень в залежносты від ширини вьюпорту
+let perPageFavorites = window.innerWidth < 768 ? 9 : 12;
+let visiblePages = window.innerWidth < 768 ? 2 : 3;
 
 const options = {
   totalItems: length,
-  itemsPerPage: 12,
-  visiblePages: window.innerWidth < 768 ? 2 : 3,
+  itemsPerPage: perPageFavorites,
+  visiblePages: visiblePages,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
