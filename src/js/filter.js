@@ -11,7 +11,8 @@ import {
   searchAddOrders,
   searchRecipesFlexFilter,
 } from './createAPI';
-import { changeParams, removeParams,showSearchRecipes} from './categories'
+import { changeParams, removeParams, showSearchRecipes } from './categories';
+import debounce from 'lodash.debounce';
 
 const elements = {
   form: document.querySelector('.js-form-search'),
@@ -26,35 +27,35 @@ const elements = {
 // ❗ Слухачі подій ❗
 
 elements.form.addEventListener('submit', handlerForm);
-elements.search.addEventListener('input', handlerSearch);
 elements.time.addEventListener('change', handlerTime);
 elements.area.addEventListener('change', handlerArea);
 elements.ingredients.addEventListener('change', handlerIngredients);
+elements.search.addEventListener(
+  'input',
+  debounce(() => {
+    let search = elements.search.value.trim();
+    changeParams('title', search);
+    showSearchRecipes();
+    console.log(search);
+  }, 300)
+);
 
 function handlerForm(evt) {
   evt.preventDefault();
-
-  console.log(category);
-
-  searchRecipesFilter()
-    .then(result => {})
-    .catch(err => {});
 }
-function handlerSearch(evt) {}
 
 function handlerTime(evt) {
   changeParams('time', evt.currentTarget.value);
   showSearchRecipes();
 }
-  
 
 function handlerArea(evt) {
-   changeParams('area', evt.currentTarget.value);
+  changeParams('area', evt.currentTarget.value);
   showSearchRecipes();
 }
 
 function handlerIngredients(evt) {
-   changeParams('ingredients', evt.currentTarget.value);
+  changeParams('ingredient', evt.currentTarget.value);
   showSearchRecipes();
 }
 
@@ -73,7 +74,6 @@ searchAreas()
 searchIngredients()
   .then(result => {
     elements.ingredients.innerHTML = createIngredients(result.data);
-    console.log(result.data);
   })
   .catch(err => {});
 
@@ -103,12 +103,12 @@ function createIngredients(arr) {
 
 createTime();
 function createTime() {
-  let markup = "";
+  let markup = '';
 
   for (let time = 0; time < 160; time += 10) {
-    markup +=`<option class="filter-opt" value="${time}">${time}</option>`
+    markup += `<option class="filter-opt" value="${time}">${time}</option>`;
   }
-   elements.time.insertAdjacentHTML('beforeend',markup);
+  elements.time.insertAdjacentHTML('beforeend', markup);
 }
 
 // ❗ Створення js-reset-filter-btn ❗
@@ -118,6 +118,7 @@ elements.resetBtn.addEventListener('click', handlerReset);
 function handlerReset(evt) {
   removeParams('time');
   removeParams('area');
-  removeParams('ingredients');
+  removeParams('ingredient');
+  removeParams('title');
   showSearchRecipes();
 }
