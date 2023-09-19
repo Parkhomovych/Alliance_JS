@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 24px;
     margin-bottom: 40px;
     
@@ -247,4 +247,75 @@
 
 .yellow-star {
   fill: #eea10c;
+}
+
+.card-modal {
+  position: relative;
+  width: 335px;
+
+  padding: 40px 20px;
+  border-radius: 15px;
+  background: var(--whiit-first-color);
+}
+
+.modal-card-video {
+width: 295px;
+height: 295px;
+}
+
+.modal-card-title {
+  margin-bottom: 14px;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+.info-div-modal {
+  display: flex;
+}
+.box-star-modal {
+  margin-right: 16px;
+}
+.box-star-modal {
+  margin-right: 16px;
+}
+.grey {
+  margin-right: 6px;
+  color: rgba(5, 5, 5, 0.50);
+}
+
+.info-time {
+  font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+  color: rgba(5, 5, 5, 0.50);
+  }
+
+.favorite-modal-btn {
+  display: block;
+  
+  width: 148px;
+  height: 41px;
+  bottom: 40px;
+  left: 20px;
+  border-radius: 15px;
+  background: var(--breen-color);
+  color: var(--whiit-first-color);
+}
+
+.modal-card-close-btn {
+  background-color: #eea10c;
+}
+
+.modal-card-instructions {
+  margin-bottom: 40px;
+
+  font-size: 14px;
+    line-height: 1.29;
+    color: rgba(5, 5, 5, 0.80);
+}
+
+.body-hidden {
+  overflow: hidden;
 }
