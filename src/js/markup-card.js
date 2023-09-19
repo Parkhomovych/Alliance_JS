@@ -110,3 +110,90 @@ function createMarkup(params) {
     .join('');
 }
 export { renderMarkup, createMarkup };
+//  Модалка з рецептом
+const config = { // параметри MutationObserver
+  childList: true,
+  subtree: true,
+};
+const observer = new MutationObserver(testFn); // створюємо екземпляр класу MutationObserver
+function testFn() {
+  const btnAll = document.querySelectorAll('.info-btn');// витягуємо всі кнопки
+  btnAll.forEach(btn => {
+    btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
+  });
+}
+observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
+function openRecipeModal(e) {
+  const btn = e.target.id;
+  searchRecipesId(btn)
+    .then(markupModalRecipe)
+    .catch(error => {
+      console.log(error);
+    });
+};
+function markupModalRecipe(elem) {
+  const { data: { title, youtube, thumb, rating, time, ingredients, tags, instructions
+  } } = elem;
+// Заміна шляху до відео youtube
+  const videoBackend = youtube;
+  const changeHttpVideo = videoBackend.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+  let instance = basicLightbox.create(
+    `<div class="card-modal">
+  <button type="button" class="modal-close-btn js-card-close-btn"></button>
+  <iframe id="player" class="modal-card-video"
+  src="${changeHttpVideo || thumb}" style="border: none" allowfullscreen title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+  <h2 class="modal-card-title">${title}</h2>
+  <div class="info-div-modal">
+    <p class="info-rating grey">${rating.toFixed(1)}</p>
+    <div class="box-stars">
+      <svg class="star" viewBox="0 0 32 32">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+      <svg class="star" viewBox="0 0 32 32">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+      <svg class="star" viewBox="0 0 32 32">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+      <svg class="star" viewBox="0 0 32 32">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+      <svg class="star" viewBox="0 0 32 32">
+        <path
+          d="M13.826 3.262c0.684-2.106 3.663-2.106 4.348 0l1.932 5.945c0.306 0.942 1.184 1.579 2.174 1.579h6.251c2.214 0 3.135 2.833 1.344 4.135l-5.057 3.674c-0.801 0.582-1.136 1.614-0.83 2.556l1.931 5.945c0.684 2.106-1.726 3.857-3.517 2.555l-5.057-3.674c-0.801-0.582-1.886-0.582-2.687 0l-5.057 3.674c-1.791 1.302-4.202-0.45-3.517-2.555l1.932-5.945c0.306-0.942-0.029-1.973-0.83-2.556l-5.057-3.674c-1.791-1.302-0.871-4.135 1.344-4.135h6.251c0.99 0 1.868-0.638 2.174-1.579l1.932-5.945z"
+        ></path>
+      </svg>
+    </div>
+    <p class="info-time">${time}min</p>
+  </div>
+  <ul class="modal-card-list">
+  </ul>
+  <ul class="modal-card-tags">
+  </ul>
+  <p class="modal-card-instructions">${instructions}</p>
+  <button type="button" class="favorite-modal-btn">Add to favorite</button>
+</div>
+`,
+    { closable: true }
+  );
+  instance.show();
+// Функції розмітки та рейтингу модалки
+  createTagsModal(tags);
+  createIngredientsModal(ingredients);
+  renderStarModal(rating);
+  document.body.style.overflow = 'hidden';
+  const modalCardCloseBtn = document.querySelector('.js-card-close-btn');
+  const divModal = document.querySelector('.card-modal');
+  modalCardCloseBtn.addEventListener('click', () => {
+    document.body.style.overflow = 'auto';
+    instance.close();
+  });
+}

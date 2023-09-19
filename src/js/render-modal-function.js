@@ -16,13 +16,13 @@ function renderStarModal(rating) {
 function createIngredientsModal(ingredients) {
 
     const ingredientsBox = document.querySelector('.modal-card-list');
-    ingredientsBox.innerHTML = markupIngredientsModal(ingredients);
+    ingredientsBox.innerHTML = markupIngredientsModal(ingredients).join('');
 
     function markupIngredientsModal(ingredients) {
       return ingredients.map(elem => {
         return `<li class="modal-card-item">
-    <p class="name-ingredient>${elem.name}</p>
-    <p class="measure-ingredient>${elem.measure}</p>
+    <p class="name-ingredient">${elem.name}</p>
+    <p class="measure-ingredient">${elem.measure}</p>
     </li>`
       })
     };
@@ -33,7 +33,7 @@ function createIngredientsModal(ingredients) {
 function createTagsModal(tags) {
 
     const tagsBox = document.querySelector('.modal-card-tags');
-    tagsBox.innerHTML = markupIngredientsModal(tags);
+    tagsBox.innerHTML = markupIngredientsModal(tags).join('');
 
     function markupIngredientsModal(tags) {
       return tags.map(elem => {
