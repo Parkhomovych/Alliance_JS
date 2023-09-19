@@ -8,5 +8,8 @@ import './js/hearts/heartsFill';
 import './js/categories';
 import './js/hero';
 import './js/swiper';
-import './js/filter'
-import './js/pagination'
+import './js/filter';
+import './js/pagination';
+import './js/favorites/favorites';
+import './js/favorites/pagination-fav';
+import './js/setLokaleStorageFavorite';
