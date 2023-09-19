@@ -1,17 +1,10 @@
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basicLightbox.min.css';
 
-const switcher = document.querySelector('.switcher-check');
-const mobSwitcher = document.querySelector('.mob-switcher-check');
-const mobMenu = document.querySelector('.js-menu-container');
-const header = document.querySelector('.header');
 const mobMenuOpenBtn = document.querySelector('.js-open-menu');
 const mobMenuCloseBtn = document.querySelector('.js-close-menu');
 const mobMenuContainer = document.querySelector('.js-menu-container');
 const basketButton = document.querySelector('.basket-button');
-
-const body = document.querySelector('body');
 
 mobMenuOpenBtn.addEventListener('click', onOpenMenuClick);
 
@@ -28,22 +21,6 @@ function onCloseMenuClick() {
     mobMenuContainer.classList.remove('is-open');
   }
 }
-
-const Theme = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
-  GREEN: 'green-theme',
-};
-
-switcher.addEventListener('change', () => {
-  header.classList.toggle(Theme.DARK);
-  body.classList.toggle(Theme.DARK);
-});
-
-mobSwitcher.addEventListener('change', () => {
-  mobMenu.classList.toggle(Theme.DARK);
-  body.classList.toggle(Theme.DARK);
-});
 
 // ------------------МОДАЛКА-------------------
 
@@ -105,4 +82,3 @@ function onBasketBtnClick() {
     instance.close();
   });
 }
-export{onBasketBtnClick}
