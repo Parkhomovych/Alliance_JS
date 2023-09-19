@@ -21,8 +21,8 @@ function createIngredientsModal(ingredients) {
     function markupIngredientsModal(ingredients) {
       return ingredients.map(elem => {
         return `<li class="modal-card-item">
-    <p>${elem.name}</p>
-    <p>${elem.measure}</p>
+    <p class="name-ingredient>${elem.name}</p>
+    <p class="measure-ingredient>${elem.measure}</p>
     </li>`
       })
     };
