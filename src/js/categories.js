@@ -240,3 +240,4 @@ function makeMarkupPopular(arr) {
     .join('');
 }
 
+export { changeParams, removeParams, showSearchRecipes, paramsRecepies }
