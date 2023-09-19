@@ -2,11 +2,7 @@ import 'modern-normalize';
 import './js/header';
 import './js/markup-card';
 import './js/createAPI';
-import './js/localStorageJSON';
-import './js/hearts/cardHearts';
-import './js/hearts/heartsFill';
 import './js/categories';
 import './js/hero';
 import './js/swiper';
 import './js/filter'
-import './js/pagination'
