@@ -17,16 +17,13 @@
 }
 
 .card-list {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    gap: 24px;
-    margin-bottom: 40px;
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
 }
-
 @media only screen and (min-width: 768px) {
   .card-list {
     flex-wrap: wrap;
@@ -34,8 +31,12 @@
     gap: 16px;
   }
 }
-
-
+@media only screen and (min-width: 1280px) {
+  .card-list {
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+}
 
 @media only screen and (min-width: 768px) {
   .card-item {
@@ -47,7 +48,6 @@
     width: calc((100% - 32px) / 3);
   }
 }
-
 .photo-card {
   position: relative;
   width: 100%;
@@ -58,7 +58,6 @@
     width: 250px;
   }
 }
-
 .photo-thumb {
   width: 335px;
 }
@@ -113,7 +112,6 @@
   );
   border-radius: 8px;
 }
-
 @media only screen and (min-width: 768px) {
   .photo-thumb:after {
     width: 240px;
@@ -125,21 +123,17 @@
     width: 250px;
   }
 }
-
 .btn-favorite {
   position: absolute;
-
   z-index: 5;
   top: 16px;
   right: 16px;
   background-color: transparent;
 }
-
 .info {
   position: absolute;
   z-index: 4;
   width: 303px;
-
   bottom: 16px;
   left: 16px;
 }
@@ -149,54 +143,46 @@
     width: 208px;
   }
 }
-
 .info-title {
   margin-bottom: 8px;
 
-    color: var(--white-second-color);
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.28;
-    text-transform: uppercase;
+  color: var(--white-second-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28;
+  text-transform: uppercase;
 }
-
 .info-text {
   margin-bottom: 16px;
   font-size: 12px;
 
-    overflow: hidden;
-        color: var(--white-second-color);
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--white-second-color);
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
-    line-height:1.33;
+  line-height: 1.33;
 }
-
 @media only screen and (min-width: 768px) {
   .info-text {
     margin-bottom: 14px;
   }
 }
-
 .info-bottom {
   display: flex;
   align-items: center;
 }
-
 .info-div {
   display: flex;
   align-items: center;
 }
-
 .info-rating {
   margin-right: 4px;
-
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
-
   color: var(--white-second-color);
 }
 
@@ -205,7 +191,6 @@
     margin-right: 2px;
   }
 }
-
 @media only screen and (min-width: 1280px) {
   .info-rating {
     margin-right: 4px;
@@ -219,10 +204,8 @@
   justify-content: center;
   align-items: center;
   margin-left: auto;
-
   font-size: 12px;
   font-weight: 500;
-
   border-radius: 8px;
   background: var(--breen-color);
   color: var(--white-second-color);
@@ -244,9 +227,89 @@
     height: 12px;
   }
 }
-
 .yellow-star {
   fill: #eea10c;
+}
+.card-modal {
+  position: relative;
+  width: 335px;
+  padding: 40px 20px;
+  border-radius: 15px;
+  background: var(--whiit-first-color);
+}
+.modal-card-video {
+  width: 295px;
+  height: 295px;
+}
+.modal-card-title {
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  text-transform: uppercase;
+}
+.info-div-modal {
+  display: flex;
+}
+.box-star-modal {
+  margin-right: 16px;
+}
+.box-star-modal {
+  margin-right: 16px;
+}
+.grey {
+  margin-right: 6px;
+  color: rgba(5, 5, 5, 0.5);
+}
+.info-time {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+  color: rgba(5, 5, 5, 0.5);
+}
+.favorite-modal-btn {
+  display: block;
+  width: 148px;
+  height: 41px;
+  bottom: 40px;
+  left: 20px;
+  border-radius: 15px;
+  background: var(--breen-color);
+  color: var(--whiit-first-color);
+}
+.modal-card-close-btn {
+  background-color: #eea10c;
+}
+.modal-card-instructions {
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 1.29;
+  color: rgba(5, 5, 5, 0.8);
+}
+.body-hidden {
+  overflow: hidden;
+}
+
+.modal-card-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.10);
+}
+.modal-card-tag {
+  border-radius: 35px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  padding: 8px 16px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+.modal-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
 }
 
 .card-modal {
