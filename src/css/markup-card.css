@@ -439,3 +439,8 @@
     height: 45px;
   }
 }
+
+.basicLightbox {
+  align-items: normal !important;
+  overflow: auto;
+}
