@@ -32,10 +32,6 @@ elements.ingredients.addEventListener('change', handlerIngredients);
 
 function handlerForm(evt) {
   evt.preventDefault();
-  console.log(category);
-  evt.preventDefault();
-  console.log(category);
-
   searchRecipesFilter()
     .then(result => {})
     .catch(err => {});
@@ -63,6 +59,7 @@ searchAreas()
 searchIngredients()
   .then(result => {
     elements.ingredients.innerHTML = createIngredients(result.data);
+    console.log(result.data);
   })
   .catch(err => {});
 
@@ -71,8 +68,8 @@ searchIngredients()
 function createArea(arr) {
   return arr
     .map(
-      ({ name, id }) =>
-        `<option class="filter-opt" value="${id}">${name}</option>`
+      ({ name, _id }) =>
+        `<option class="filter-opt" value="${_id}">${name}</option>`
     )
     .join('');
 }
@@ -82,8 +79,8 @@ function createArea(arr) {
 function createIngredients(arr) {
   return arr
     .map(
-      ({ name, id }) =>
-        `<option class="filter-opt" value="${id}">${name}</option>`
+      ({ name, _id }) =>
+        `<option class="filter-opt" value="${_id}">${name}</option>`
     )
     .join('');
 }
@@ -94,7 +91,7 @@ createTime();
 function createTime() {
   let currentTime = 0;
 
-  for (let i = 0; i < 16; i += 1) {
+  for (let i = 0; i < 32; i += 1) {
     elements.time.insertAdjacentHTML(
       'beforeend',
       `<option class="filter-opt" value="">${(currentTime += 10)}</option>`
