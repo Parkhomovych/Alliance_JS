@@ -10,37 +10,7 @@
   </head>
   <body>
     <include src="./partials/header.html"></include>
-    <div class="main-content">
-      <main class="main">
-        <!-- MAIN -->
-        <div class="section-fav-hero">
-          <div class="container">
-            <include src="./partials/picture.html"></include>
-          </div>
-        </div>
-        <div class="favorite-cards">
-          <div class="container">
-            <div class="favorite-button-list">
-              <ul class="categories-list"></ul>
-            </div>
-            <ul class="favorite-render-cards"></ul>
-            <div class="no-recipe-content">
-              <svg class="fav-icon" width="97" height="83">
-                <use href="./images/logo.svg"></use>
-              </svg>
-              <p class="no-recipes">
-                It appears that you haven't added any recipes to your favorites
-                yet. To get started, you can add recipes that you like to your
-                favorites for easier access in the future.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="pagination-wrapper">
-          <div id="pagination" class="tui-pagination"></div>
-        </div>
-      </main>
-    </div>
+    <include src="./partials/main-favorite.html"></include>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

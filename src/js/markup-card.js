@@ -133,9 +133,9 @@ function openRecipeModal(e) {
   const btn = e.target.id;
   searchRecipesId(btn)
     .then(res => {
-      markupModalRecipe(res)
-      const simple = document.querySelector('.basicLightbox')
-      simple.classList.add('correct-recipe')
+      markupModalRecipe(res);
+      const simple = document.querySelector('.basicLightbox');
+      simple.classList.add('correct-recipe');
     })
 
     .catch(error => {
@@ -208,7 +208,8 @@ function markupModalRecipe(elem) {
   <button type="button" class="favorite-modal-btn">Add to favorite</button>
 </div>
 `,
-    { closable: true }
+
+    { closable: false }
   );
   instance.show();
   // Функції розмітки та рейтингу модалки
