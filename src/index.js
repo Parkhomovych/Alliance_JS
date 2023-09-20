@@ -7,3 +7,4 @@ import './js/categories';
 import './js/hero';
 import './js/swiper';
 import './js/scrollToTop'
+import './js/filter'
