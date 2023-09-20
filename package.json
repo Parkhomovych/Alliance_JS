@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@splidejs/splide": "^4.1.4",
+    "animate.css": "^4.1.1",
     "axios": "^1.5.0",
     "basiclightbox": "^5.0.4",
     "lodash.debounce": "^4.0.8",

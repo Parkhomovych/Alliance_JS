@@ -163,5 +163,11 @@ span.swiper-pagination-bullet-active {
   background: var(--breen-color);
 }
 
-.slider-pagination {
+.swiper-pagination{
+  left:-72px!important;
+}
+@media screen and (min-width: 768px) {
+  .swiper-pagination{
+    left:-107px!important;
+  }
 }
