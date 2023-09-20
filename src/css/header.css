@@ -44,6 +44,12 @@ body {
 .nav-item:not(:last-child) {
   margin-right: 16px;
 }
+.index .a {
+  color: var(--breen-color);
+}
+.favorite .b {
+  color: var(--breen-color);
+}
 /* -----------LOGO----------- */
 
 .logo {

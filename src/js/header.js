@@ -70,11 +70,7 @@ function onBasketBtnClick() {
   instance.show();
 
   const modalCloseBtn = document.querySelector('.js-modal-close-btn');
-  const modal = document.querySelector('.header-modal');
-
-  modal.addEventListener('submit', e => {
-    e.preventDefault();
-  });
+  // const modal = document.querySelector('.header-modal');
 
   modalCloseBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
@@ -83,4 +79,4 @@ function onBasketBtnClick() {
   });
 }
 
-export{onBasketBtnClick}
+export { onBasketBtnClick };
