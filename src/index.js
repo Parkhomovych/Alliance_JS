@@ -5,4 +5,5 @@ import './js/createAPI';
 import './js/categories';
 import './js/hero';
 import './js/swiper';
-import './js/filter'
+import './js/filter';
+import './js/hero-message';
