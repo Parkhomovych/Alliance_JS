@@ -128,6 +128,7 @@ function testFn() {
     btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
   });
 }
+
 observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
 function openRecipeModal(e) {
   const btn = e.target.id;
