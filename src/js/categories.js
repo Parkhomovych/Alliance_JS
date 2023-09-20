@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import Notiflix from 'notiflix';
-import { renderMarkup } from './markup-card.js';
+import { renderMarkup, openRecipeModalPopular } from './markup-card.js';
 
 import {
   searchEvents,
@@ -106,7 +106,7 @@ function showSearchRecipes() {
   changeParams('page', 1);
   searchRecipesFlexFilter(paramsRecepies)
     .then(recipes => {
-      renderMarkup(recipes);
+      renderMarkup(recipes.data.results);
       paginationListenerOn(recipes.data.totalPages);
     })
     .catch(() => {});
@@ -116,7 +116,7 @@ function showSearchRecipes() {
 function reShowSearchRecipes() {
   searchRecipesFlexFilter(paramsRecepies)
     .then(recipes => {
-      renderMarkup(recipes);
+      renderMarkup(recipes.data.results);
     })
     .catch(() => {});
 };
@@ -189,7 +189,7 @@ function onClickPopular(evt) {
     return;
   };
   const selectedId = evt.currentTarget.dataset.set;
-  console.log(selectedId);
+  openRecipeModalPopular(selectedId);
 };
 
 // додавання/зміна параметру в об'єкт для пошуку рецепту

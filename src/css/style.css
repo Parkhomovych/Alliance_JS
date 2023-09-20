@@ -10,6 +10,7 @@
 @import url(./filter.css);
 @import '../../node_modules/swiper/swiper-bundle.css';
 @import '../../node_modules/swiper/modules/pagination.css';
+@import url(./scroll-to-top.css);
 @import url(./favorite.css);
 
 /* Fonst */

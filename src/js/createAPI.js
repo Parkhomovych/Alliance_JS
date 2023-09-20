@@ -13,7 +13,7 @@ const resource = {
   popular: '/recipes/popular',
   ingredients: '/ingredients',
   areas: '/areas',
-  orders: '/orders',
+  orders: '/orders/add',
 };
 
 // Перелік подій(майстер-класів)
@@ -109,26 +109,13 @@ const searchAreas = async () => {
 
 // Додавання замовлення
 
-const searchAddOrders = async () => {
-  const ordersAdd = {
-    name,
-    phone,
-    email,
-    comment,
-  };
-
-  // Праметри API запиту
-  const params = new URLSearchParams({
-    method: 'POST',
-    body: JSON.stringify(ordersAdd),
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-  });
-
-  const response = await axios.get(`${URL}${resource.orders}`, params);
+const searchAddOrders = async (ordersAdd) => {
+ 
+  const response = await axios.post(`${URL}${resource.orders}`,ordersAdd);
   return response;
 };
+
+
 // Перелік рецептів з фільтрацією по заповненому екземпляру URLSearchParams
 const searchRecipesFlexFilter = async urlParams => {
   const response = await axios.get(`${URL}${resource.recipes}?${urlParams}`);
