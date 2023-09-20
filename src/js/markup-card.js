@@ -51,6 +51,23 @@ function handler() {
       console.log(error);
     });
 }
+
+elem.addEventListener('click', onClickList);
+
+function onClickList(evt) {
+  if (evt.target.nodeName === 'BUTTON') {
+    const selectedModal = evt.target;
+     console.log(selectedModal);
+  };
+  if (evt.target.nodeName === 'svg') {
+    const selectedFavorits = evt.target.dataset.set;
+   if (selectedFavorits) {
+     toggleFavorit(selectedFavorits);
+     console.log(selectedFavorits);
+   }
+  };
+}
+
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res);
   renderStar();
@@ -112,7 +129,7 @@ function createMarkup(params) {
                 </svg>
                 </div>
           </div>
-              <button id=${elem._id} class="info-btn">
+              <button id=${elem._id} class="info-btn" data-set="${elem._id}">
                  See recipe
               </button>
               </div>
