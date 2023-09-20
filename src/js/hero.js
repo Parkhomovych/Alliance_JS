@@ -1,5 +1,4 @@
-import { searchEvents, searchAddOrders } from './createAPI';
-import callMassageAdd from './hero-message'
+import { searchEvents } from './createAPI';
 import { onBasketBtnClick } from './header'
 import markupEvents from './hero-markup-swiper'
 import getRefs from './hero-refs';
@@ -12,8 +11,9 @@ refs.orderBtnHero.addEventListener('click', handlerOrderBtn);
 function handlerOrderBtn() {
   onBasketBtnClick();
 
-  const modalMessage = document.querySelector('.header-form');
-  callMassageAdd(modalMessage);
+  // const modalMessage = document.querySelector('.header-form');
+  // callMassageAdd(modalMessage);
+
 
 };
 
