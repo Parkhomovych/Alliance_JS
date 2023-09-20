@@ -36,7 +36,6 @@ elements.search.addEventListener(
     let search = elements.search.value.trim();
     changeParams('title', search);
     showSearchRecipes();
-    console.log(search);
   }, 300)
 );
 
@@ -64,6 +63,7 @@ function handlerIngredients(evt) {
 searchAreas()
   .then(result => {
     elements.area.innerHTML = createArea(result.data);
+    
   })
   .catch(err => {
     console.log(err);
@@ -105,8 +105,52 @@ createTime();
 function createTime() {
   let markup = '';
 
-  for (let time = 0; time < 160; time += 10) {
-    markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+  // ❗ ДОРОБИТИ ПРАВИЛЬНУ ЛОГІКУ ЧАСУ ❗
+  for (let time = 0; time < 220; time += 5) {
+    if (time % 10 === 0) {
+      markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    }
+    // if (time === 25) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 55) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 75) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 85) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 105) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 195) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 205) {
+    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
+    // }
+    // if (time === 50) {
+    //   markup += `<option class="filter-opt" value="${time + 1}">${
+    //     time + 1
+    //   }</option>`;
+    // }
+    // if (time === 155) {
+    //   markup += `<option class="filter-opt" value="${time + 3}">${
+    //     time + 3
+    //   }</option>`;
+    // }
+    // if (time === 10) {
+    //   markup += `<option class="filter-opt" value="${time + 2}">${
+    //     time + 2
+    //   }</option>`;
+    // }
+    // if (time === 25) {
+    //   markup += `<option class="filter-opt" value="${time + 2}">${
+    //     time + 2
+    //   }</option>`;
+    // }
   }
   elements.time.insertAdjacentHTML('beforeend', markup);
 }
