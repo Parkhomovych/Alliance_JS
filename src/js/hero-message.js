@@ -17,7 +17,8 @@ export default function callMassageAdd(modalMessage) {
       };
   
       searchAddOrders(message).then(auditMessage).catch(error => { console.log(error) });
-    }   
+    } 
+     
 };
 
 function auditMessage(res) {

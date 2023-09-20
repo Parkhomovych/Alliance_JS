@@ -1,6 +1,8 @@
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
-
+// ****************************************************
+import callMassageAdd from './hero-message';
+// ********************************************************
 const mobMenuOpenBtn = document.querySelector('.js-open-menu');
 const mobMenuCloseBtn = document.querySelector('.js-close-menu');
 const mobMenuContainer = document.querySelector('.js-menu-container');
@@ -44,7 +46,6 @@ function onBasketBtnClick() {
     name="phone"
     id="phone"
     placeholder=" "
-    pattern="+380[0-9]{9}"
     required
   />
   <label class="header-form-label" for="email">Email</label>
@@ -68,23 +69,36 @@ function onBasketBtnClick() {
   </form>
 </div>
 `,
-    { closable: false }
+    { onShow: (instance) => { document.addEventListener('keydown', registrationEventKey) } },
+    { closeShow: (instance) => { document.removeEventListener('keydown', registrationEventKey) } }
   );
+
   document.body.style.overflow = 'hidden';
   instance.show();
 
+  const modalMessage = document.querySelector('.header-form');
+  callMassageAdd(modalMessage);
+
   const modalCloseBtn = document.querySelector('.js-modal-close-btn');
+  const modalSendBtn = document.querySelector('.header-form-btn');
   const modal = document.querySelector('.header-modal');
 
   modal.addEventListener('submit', e => {
     e.preventDefault();
   });
-
+  function registrationEventKey(e) {
+    if (e.code === 'Escape')
+    return instance.close();
+  };
   modalCloseBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
-
+    instance.close();
+  });
+  // питання чому не може спррацьовує на submit
+  modalSendBtn.addEventListener("click", () => {
+    document.body.style.overflow = 'auto';
     instance.close();
   });
 }
 
-export{onBasketBtnClick}
+export { onBasketBtnClick }
