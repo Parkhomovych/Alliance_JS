@@ -44,6 +44,12 @@ body {
 .nav-item:not(:last-child) {
   margin-right: 16px;
 }
+.index .a {
+  color: var(--breen-color);
+}
+.favorite .b {
+  color: var(--breen-color);
+}
 /* -----------LOGO----------- */
 
 .logo {
@@ -276,7 +282,7 @@ body {
   right: 14px;
   width: 20px;
   height: 20px;
-  background-image: url('../images/close-black1.svg');
+  background-image: url('../images/blackx.svg');
   background-size: cover;
   background-position: center center;
   stroke: var(--black-second-color);
@@ -363,4 +369,3 @@ body {
     padding: 40px 0 40px;
   }
 }
-

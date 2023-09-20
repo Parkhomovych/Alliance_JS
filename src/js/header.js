@@ -69,8 +69,16 @@ function onBasketBtnClick() {
   </form>
 </div>
 `,
-    { onShow: (instance) => { document.addEventListener('keydown', registrationEventKey) } },
-    { closeShow: (instance) => { document.removeEventListener('keydown', registrationEventKey) } }
+    {
+      onShow: instance => {
+        document.addEventListener('keydown', registrationEventKey);
+      },
+    },
+    {
+      closeShow: instance => {
+        document.removeEventListener('keydown', registrationEventKey);
+      },
+    }
   );
 
   document.body.style.overflow = 'hidden';
@@ -87,18 +95,17 @@ function onBasketBtnClick() {
     e.preventDefault();
   });
   function registrationEventKey(e) {
-    if (e.code === 'Escape')
-    return instance.close();
-  };
+    if (e.code === 'Escape') return instance.close();
+  }
   modalCloseBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
     instance.close();
   });
   // питання чому не може спррацьовує на submit
-  modalSendBtn.addEventListener("click", () => {
+  modalSendBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
     instance.close();
   });
 }
 
-export { onBasketBtnClick }
+export { onBasketBtnClick };

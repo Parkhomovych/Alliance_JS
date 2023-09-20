@@ -45,20 +45,223 @@
   background-color: var(--breen-color);
 }
 
-.light-theme {
+/* .light-theme {
   background-color: var(--white-second-color);
   color: var(--black-second-color);
-}
+} */
 
 .dark-theme {
   background-color: #161616;
-  color: var(--white-second-color);
-  stroke: var(--white-second-color);
+  color: var(--whiit-first-color);
+  /* stroke: var(--whiit-first-color); */
 }
 
 .green-theme {
   background-color: var(--breen-color);
   color: var(--white-second-color);
+}
+
+.dark-theme .a {
+  color: var(--breen-color);
+}
+.dark-theme .b {
+  color: var(--breen-color);
+}
+
+.dark-theme .header {
+  background-color: #161616;
+}
+.dark-theme .nav-item-link {
+  color: var(--whiit-first-color);
+}
+.dark-theme .nav-item-link:hover,
+.dark-theme .nav-item-link:focus {
+  color: var(--breen-color);
+}
+.dark-theme .logo {
+  color: var(--whiit-first-color);
+}
+.dark-theme .logo-green {
+  color: var(--breen-color);
+}
+.dark-theme .basket-icon {
+  stroke: var(--whiit-first-color);
+}
+.dark-theme .basket-icon:hover,
+.dark-theme .basket-icon:focus {
+  stroke: var(--breen-color);
+}
+.dark-theme .menu-toggle-icon {
+  stroke: var(--whiit-first-color);
+}
+.dark-theme .menu-toggle-icon:hover,
+.dark-theme .menu-toggle-icon:focus {
+  stroke: var(--breen-color);
+}
+.dark-theme .title-hero {
+  color: var(--whiit-first-color);
+}
+.dark-theme .text-hero {
+  color: var(--whiit-first-color);
+}
+.dark-theme .btn-hero {
+  color: var(--whiit-first-color);
+  background-color: #161616;
+
+  transition: color var(--time) var(--cubic),
+    background-color var(--time) var(--cubic);
+}
+.dark-theme .recipes-all {
+  background-color: #161616;
+}
+.dark-theme .categories-btn-all {
+  background-color: #161616;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .filter-input {
+  background-color: #161616;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .filter-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .filter-select {
+  background-color: #161616;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.dark-theme .filter-select::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.dark-theme .filter-select::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.dark-theme .filter-opt {
+  background: #050505;
+
+  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+  color: rgba(255, 255, 255, 0.3);
+}
+.dark-theme .filter-opt:focus {
+  background: #050505;
+
+  color: white;
+}
+
+.dark-theme .filter-search-icon {
+  fill: rgba(255, 255, 255, 0.2);
+  stroke: rgba(255, 255, 255, 0.2);
+}
+.dark-theme .js-search {
+  background-color: #161616;
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .js-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .categories-btn-js {
+  background-color: #161616;
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .is-active {
+  color: var(--breen-color);
+}
+.dark-theme .reset-btn {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .info-title {
+  color: var(--whiit-first-color);
+}
+.dark-theme .info-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+.dark-theme .photo-thumb::after {
+  background: linear-gradient(1deg, #050505 4.82%, rgba(5, 5, 5, 0) 108.72%);
+}
+
+.dark-theme .popular-recipes-head {
+  color: var(--whiit-first-color);
+}
+.dark-theme .popular-card-js {
+  background-color: #161616;
+  color: var(--whiit-first-color);
+}
+.dark-theme .popular-recipes-name-js {
+  color: var(--whiit-first-color);
+}
+.dark-theme .popular-recipes-text-js {
+  color: rgba(255, 255, 255, 0.8);
+}
+.dark-theme .categories-tumb::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.dark-theme .categories-tumb::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dark-theme .header-modal {
+  background-color: #050505;
+  color: var(--whiit-first-color);
+}
+.dark-theme .modal-close-btn {
+  background-image: url('../images/whitex.svg');
+  background-size: cover;
+  background-position: center center;
+}
+.dark-theme .header-modal-title {
+  color: var(--whiit-first-color);
+}
+.dark-theme .header-form-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .header-form-input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+}
+.dark-theme .header-form-input {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .tui-page-btn {
+  color: var(--whiit-first-color) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.dark-theme .tui-page-btn:hover,
+.dark-theme .tui-page-btn:focus {
+  background-color: var(--breen-color) !important;
+}
+
+.dark-theme .card-modal {
+  background-color: #050505;
+}
+.dark-theme .modal-card-tag {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.dark-theme .name-ingredient {
+  color: var(--whiit-first-color);
+}
+.dark-theme .measure-ingredient {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .modal-card-item {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.dark-theme .info-rating,
+.dark-theme .info-time {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .modal-card-instructions {
+  color: rgba(255, 255, 255, 0.8);
+}
+.dark-theme .modal-card-instructions::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dark-theme .modal-card-instructions::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 /* ----------------MOB THEME SWITCHER-------------- */
@@ -110,12 +313,20 @@
   background-color: var(--breen-color);
 }
 
-.js-menu-container.light-theme {
+/* .js-menu-container.light-theme {
   background-color: var(--whiit-first-color);
   color: var(--black-second-color);
-}
+} */
 
-.js-menu-container.dark-theme {
+.dark-theme .js-menu-container {
   background-color: var(--black-second-color);
   color: var(--whiit-first-color);
+}
+.dark-theme .menu-toggle-icon-close:hover,
+.dark-theme .menu-toggle-icon-close:focus {
+  stroke: var(--breen-color);
+}
+.dark-theme .mob-menu-link:hover,
+.dark-theme .mob-menu-link:focus {
+  color: var(--breen-color);
 }
