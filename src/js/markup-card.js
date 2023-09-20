@@ -129,6 +129,9 @@ function testFn() {
   });
 }
 observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
+
+
+
 function openRecipeModal(e) {
   const btn = e.target.id;
   searchRecipesId(btn)
@@ -142,6 +145,7 @@ function openRecipeModal(e) {
       console.log(error);
     });
 }
+
 function markupModalRecipe(elem) {
   const {
     data: {
