@@ -1,8 +1,7 @@
 @import url(./reset.css);
 @import url(./scrollbar.css);
 @import url(./header.css);
-@import url(./markup-card.css);
-@import url(./favorite.css);
+@import url(./theme-switcher.css);
 @import url(./markup-card.css);
 @import url(./categories.css);
 @import url(./pagination.css);
@@ -11,7 +10,7 @@
 @import url(./filter.css);
 @import '../../node_modules/swiper/swiper-bundle.css';
 @import '../../node_modules/swiper/modules/pagination.css';
-@import url(./scroll-to-top.css);
+
 
 /* Fonst */
 @font-face {
