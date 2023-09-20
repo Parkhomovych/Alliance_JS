@@ -8,6 +8,7 @@ import {
   createIngredientsModal,
   createTagsModal,
 } from './render-modal-function';
+import { addFavorit, removeFavorit, isFavorit, toggleFavorit, resizeFavorit, classFavorit, dataArray } from './storage'
 const URL = 'https://tasty-treats-backend.p.goit.global/api';
 const elem = document.querySelector('.card-list');
 const resource = {
@@ -51,7 +52,7 @@ function handler() {
     });
 }
 function renderMarkup(res) {
-  elem.innerHTML = createMarkup(res.data.results);
+  elem.innerHTML = createMarkup(res);
   renderStar();
 }
 function renderStar() {
@@ -79,7 +80,7 @@ function createMarkup(params) {
       }" loading="lazy"/>
         </div>
         <button type="button" class="btn-favorite" >
-                <svg class="icon-favorite" data-set="${elem._id}" viewBox="0 0 32 32">
+                <svg class="icon-favorite${classFavorit(elem._id)}" data-set="${elem._id}" viewBox="0 0 32 32">
 <path d="M15.992 6.848c-2.666-3.117-7.111-3.955-10.451-1.101s-3.81 7.625-1.187 11c2.181 2.806 8.781 8.725 10.944 10.641 0.242 0.214 0.363 0.321 0.504 0.364 0.123 0.037 0.258 0.037 0.381 0 0.141-0.042 0.262-0.149 0.504-0.364 2.163-1.916 8.763-7.834 10.944-10.641 2.623-3.375 2.21-8.177-1.187-11.001s-7.785-2.015-10.451 1.101z"></path>
                 </svg>
         </button>
