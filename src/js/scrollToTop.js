@@ -23,13 +23,4 @@ function scrollToTop() {
 };
 
 
-function scrollToTopAnimation() {
-  if (window.pageYOffset > 0) {
-    window.scrollBy(0, -45); 
-    requestAnimationFrame(scrollToTopAnimation);
-  } else {
-    isScrolling = false;
-  }
-};
-
 
