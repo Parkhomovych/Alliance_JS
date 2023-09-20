@@ -19,6 +19,14 @@ const resource = {
   areas: '/areas',
   orders: '/orders',
 };
+let totalCards;
+if (375 >= window.outerWidth) {
+  totalCards = 6;
+} else if (768 >= window.outerWidth) {
+  totalCards = 8;
+} else {
+  totalCards = 9;
+}
 const searchRecipesFilter = async (
   category,
   page,
@@ -29,7 +37,7 @@ const searchRecipesFilter = async (
 ) => {
   // Праметри API запиту
   const params = new URLSearchParams({
-    limit: 9,
+    limit: totalCards,
   });
   const response = await axios.get(`${URL}${resource.recipes}?${params}`);
   return response;
