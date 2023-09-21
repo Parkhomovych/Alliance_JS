@@ -287,4 +287,4 @@ function markupModalRecipe(elem) {
 }
 
 
-export { renderMarkup, createMarkup,openRecipeModalPopular };
+export { renderMarkup, createMarkup,openRecipeModalPopular,renderStar };

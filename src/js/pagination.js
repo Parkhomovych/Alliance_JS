@@ -8,6 +8,8 @@ import { searchCategories } from './createAPI.js';
 
 import {dataArray, resizeFavorit} from './storage.js'
 
+import {filterFavoriteCards} from './filter-favorite.js'
+
 console.log("-----------------------------Galya---------------");
 //зберігаємо та відновлюємо кількість сторінок пагінації (totalItems) у об'єкті options
 //використовуємо Notiflix для відображення сповіщень у разі помилок при роботі з localStorage.
@@ -17,7 +19,7 @@ const showFavorite = document.querySelector(".favorite-show");
 const filterFavorite = document.querySelector(".favorite-filter");
 const cardsFavorite = document.querySelector(".favorite-cards");
 const container = document.getElementById('tui-pagination-container');
-
+console.log(filterFavoriteCards);
 // налаштування початкових значень в залежносты від ширини вьюпорту
 let perPageFavorites = window.innerWidth < 768 ? 9 : 12;
 let currentPage = 1;

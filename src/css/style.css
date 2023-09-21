@@ -92,3 +92,6 @@ body {
     padding-right: 100px;
   }
 }
+body.modal-open {
+  overflow: hidden;
+}

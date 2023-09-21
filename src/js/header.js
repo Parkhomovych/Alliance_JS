@@ -1,8 +1,7 @@
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
-// ****************************************************
 import callMassageAdd from './hero-message';
-// ********************************************************
+
 const mobMenuOpenBtn = document.querySelector('.js-open-menu');
 const mobMenuCloseBtn = document.querySelector('.js-close-menu');
 const mobMenuContainer = document.querySelector('.js-menu-container');
@@ -31,12 +30,12 @@ basketButton.addEventListener('click', onBasketBtnClick);
 function onBasketBtnClick() {
   let instance = basicLightbox.create(
     `
-<div class="header-modal">
+<div class="header-modal" data-action="close">
   <button type="button" class="modal-close-btn js-modal-close-btn">
   </button>
   <h2 class="header-modal-title">ORDER NOW</h2>
   
-  <form class="header-form" action="submit">
+  <form class="header-form" action="submit" data-action="close">
   <label class="header-form-label" for="name">Name</label>
   <input class="header-form-input" type="text" name="name" placeholder=" " id="name" required />
   <label class="header-form-label" for="phone">Phone number</label>
@@ -55,6 +54,7 @@ function onBasketBtnClick() {
     name="email"
     id="email"
     placeholder=" "
+
     required
   />
   <label class="header-form-label" for="comment">Comment </label>
@@ -80,10 +80,10 @@ function onBasketBtnClick() {
       },
     }
   );
+  
+  document.body.classList.add('modal-open');
 
-  document.body.style.overflow = 'hidden';
   instance.show();
-
   const modalMessage = document.querySelector('.header-form');
   callMassageAdd(modalMessage);
 
@@ -91,16 +91,15 @@ function onBasketBtnClick() {
   const modalSendBtn = document.querySelector('.header-form-btn');
   const modal = document.querySelector('.header-modal');
 
-  modal.addEventListener('submit', e => {
-    e.preventDefault();
-  });
   function registrationEventKey(e) {
     if (e.code === 'Escape') return instance.close();
   }
   modalCloseBtn.addEventListener('click', () => {
-    document.body.style.overflow = 'auto';
+    document.body.classList.remove('modal-open');
     instance.close();
   });
+
+
   // питання чому не може спррацьовує на submit
   modalSendBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';

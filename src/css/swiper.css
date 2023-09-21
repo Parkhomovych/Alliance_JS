@@ -154,18 +154,19 @@
 }
 
 span.swiper-pagination-bullet {
-  opacity: 1;
-  background-color: var(--black-second-color);
+  opacity: 1!important;
+  background-color: var(--black-second-color)!important;
 }
 
-span.swiper-pagination-bullet-active {
-  opacity: 1;
-  background: var(--breen-color);
+span.swiper-pagination-bullet-active{
+  opacity: 1!important;
+  background-color:var(--breen-color)!important;
 }
 
 .swiper-pagination{
   left:-72px!important;
 }
+
 @media screen and (min-width: 768px) {
   .swiper-pagination{
     left:-107px!important;
