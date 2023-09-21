@@ -132,6 +132,7 @@ function handlerFilterCategory(e) {
     // paginationOn(filterFavoriteCards.length);
     console.log(filterFavoriteCards);
 
+};
 // filterFavoriteCards.forEach((el) => {
 
 //         if (el.category === e.target.textContent) {
@@ -146,7 +147,6 @@ function handlerFilterCategory(e) {
     //     }
     // });
     
-};
 
 
 
