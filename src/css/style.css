@@ -12,6 +12,7 @@
 @import '../../node_modules/swiper/modules/pagination.css';
 @import url(./scroll-to-top.css);
 @import url(./favorite.css);
+@import url(./favorite-markUp.css);
 
 /* Fonst */
 @font-face {

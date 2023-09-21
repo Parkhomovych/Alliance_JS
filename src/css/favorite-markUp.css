@@ -6,12 +6,9 @@
   margin-left: auto;
   margin-right: auto;
 }
-.favorite .container-card-list {
-  width: auto;
-  margin-left: 0;
-}
-.favorite .card-item {
-  width: auto;
+.favorite .card-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 .favorite .favorite-cards {
   margin-top: 24px;
@@ -22,34 +19,77 @@
   }
 }
 .favorite .box-list {
+  margin-left: 20px;
   margin-top: 40px;
 }
 @media only screen and (min-width: 768px) {
   .favorite .box-list {
+    margin-left: 32px;
     margin-top: 64px;
   }
 }
-.favorite .favorite-filter-list{
-    width: 100%;
-    margin-left: 20px;
+@media only screen and (min-width: 1280px) {
+  .favorite .box-list {
+    margin-left: 100px;
+  }
+}
+.favorite .container-card-list {
+  margin-left: 0;
+}
+.favorite .favorite-filter-list {
+  overflow: auto;
+}
+.favorite .favorite-filter-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.favorite .favorite-filter-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.favorite .favorite-filter-item {
+  white-space: nowrap;
+  height: 46px;
 }
 @media only screen and (min-width: 768px) {
-    .favorite .favorite-filter-list{
-        margin-left: 32px;
-    }
-}@media only screen and (min-width: 1280px) {
-    .favorite .favorite-filter-list{
-        margin-left: 100px;
-    }
+  .favorite .photo-thumb {
+    width: 224px;
+    height: 224px;
+  }
 }
-.favorite .favorite-filter-item:first-child{
-    width: 150px;
+@media only screen and (min-width: 768px) {
+  .favorite .photo-thumb:after {
+    width: 224px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorite .photo-img {
+    width: 224px;
+    height: 224px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorite .container-card-list {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorite .card-item {
+    width: 224px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorite .photo-card {
+    width: 224px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorite .info {
+    width: 192px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .favorite .box-star {
+    display: flex;
+    column-gap: 2px;
+  }
 }
 
-.favorite .favorite-filter-item{
-/* display: flex;
-justify-content: center;
-align-items: center;
-padding: 0; */
-
-}

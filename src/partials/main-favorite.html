@@ -1,26 +1,24 @@
-<main class="favorite-main">
-  <!-- MAIN -->
-  <div class="container">
-    <include src="./partials/picture.html"></include>
-    <div class="no-recipe-content">
-      <svg class="logo-icon">
-        <use href="./images/icons.svg/#chefs-hat"></use>
-      </svg>
-      <p class="no-recipes">
-        It appears that you haven't added any recipes to your favorites yet. To
-        get started, you can add recipes that you like to your favorites for
-        easier access in the future.
-      </p>
-    </div>
+<!-- MAIN -->
+<div class="container">
+  <include src="./partials/picture.html"></include>
+  <div class="no-recipe-content">
+    <svg class="logo-icon">
+      <use href="./images/icons.svg/#chefs-hat"></use>
+    </svg>
+    <p class="no-recipes">
+      It appears that you haven't added any recipes to your favorites yet. To
+      get started, you can add recipes that you like to your favorites for
+      easier access in the future.
+    </p>
   </div>
-  <div class="box-list">
-    <ul class="favorite-filter-list">
-      <li class="favorite-filter-item">All categories</li>
-    </ul>
-  </div>
-  <!------------- cards Кірина вже тут---------------->
-  <div class="favorite-cards container">
-    <include src="./partials/markup-card.html"></include>
-    <include src="./partials/pagination.html"></include>
-  </div>
-</main>
+</div>
+<div class="box-list">
+  <ul class="favorite-filter-list">
+    <li class="favorite-filter-item">All categories</li>
+  </ul>
+</div>
+<!------------- cards Кірина вже тут---------------->
+<div class="favorite-cards container">
+  <include src="./partials/markup-card.html"></include>
+  <include src="./partials/pagination.html"></include>
+</div>
