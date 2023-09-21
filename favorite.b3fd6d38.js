@@ -27,7 +27,7 @@ function x(){b(h=L.getCurrentPage())}function b(e){let t=(e-1)*g,i=e*g-1;i>=o.le
 (0,d.renderMarkup)(n)}w>0?(c.classList.contains("visually-hidden")||c.classList.add("visually-hidden"),u.classList.contains("visually-hidden")&&u.classList.remove("visually-hidden"),f.classList.contains("visually-hidden")&&f.classList.remove("visually-hidden")):(c.classList.contains("visually-hidden")&&c.classList.remove("visually-hidden"),u.classList.contains("visually-hidden")||u.classList.add("visually-hidden"),f.classList.contains("visually-hidden")||f.classList.add("visually-hidden")),// встановлення слухача пагінації, відображення її, 
 //в аргументах кількість відібраних фаворитів
 function(e){if(L.reset(e),e>g){// ставимо слухача на пагінацію 
-L.on("afterMove",x),v.classList.remove("is-hidden");return}v.classList.contains("is-hidden")||v.classList.add("is-hidden"),e||Notiflix.Notify.info("Вибачте, згідно параметрів пошуку рецептів не знайдено")}(o.length),b(h);// export {paginationOn}
-}();//# sourceMappingURL=favorite.4a1de9aa.js.map
+L.on("afterMove",x),v.classList.remove("is-hidden");return}v.classList.contains("is-hidden")||v.classList.add("is-hidden"),e||Notiflix.Notify.info("Вибачте, згідно параметрів пошуку рецептів не знайдено")}(o.length),b(h),// export {paginationOn}
+n("i8Q71"),n("2Z7mb")}();//# sourceMappingURL=favorite.b3fd6d38.js.map
 
-//# sourceMappingURL=favorite.4a1de9aa.js.map
+//# sourceMappingURL=favorite.b3fd6d38.js.map

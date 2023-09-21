@@ -20,15 +20,15 @@ const c=document.querySelector(".no-recipe-content"),u=document.querySelector(".
 let g=window.innerWidth<768?9:12,h=1,p=window.innerWidth<768?2:3;// обєкт налаштувань пагінації
 const m={totalItems:l.dataArray.length,itemsPerPage:g,visiblePages:p,page:h,centerAlign:!0},L=new(r&&r.__esModule?r.default:r)(y,m);//зчитуємо зі сховища кількість фаворитів, прибираемо зайвий контент,
 //ініціюэмо пагінацію по кількості відфільтрованих фаворитів
-console.log(o);const w=(0,l.resizeFavorit)();// перемальовка фаворитів при події на пагінації
-function x(){b(h=L.getCurrentPage())}function b(e){let t=(e-1)*g,i=e*g-1;i>=o.length&&(i=o.length-1);let n=o.filter((e,n)=>n>=t&&n<=i);// console.log("favoriteStart", favoriteStart);
+console.log(o);const b=(0,l.resizeFavorit)();// перемальовка фаворитів при події на пагінації
+function w(){x(h=L.getCurrentPage())}function x(e){let t=(e-1)*g,i=e*g-1;i>=o.length&&(i=o.length-1);let n=o.filter((e,n)=>n>=t&&n<=i);// console.log("favoriteStart", favoriteStart);
 // console.log("favoriteEnd",favoriteEnd);
 // console.log("------1------>", filterFavoriteCards.length); 
 // console.log("------2------>", arr.length);
-(0,d.renderMarkup)(n)}w>0?(c.classList.contains("visually-hidden")||c.classList.add("visually-hidden"),u.classList.contains("visually-hidden")&&u.classList.remove("visually-hidden"),f.classList.contains("visually-hidden")&&f.classList.remove("visually-hidden")):(c.classList.contains("visually-hidden")&&c.classList.remove("visually-hidden"),u.classList.contains("visually-hidden")||u.classList.add("visually-hidden"),f.classList.contains("visually-hidden")||f.classList.add("visually-hidden")),// встановлення слухача пагінації, відображення її, 
+(0,d.renderMarkup)(n)}b>0?(c.classList.contains("visually-hidden")||c.classList.add("visually-hidden"),u.classList.contains("visually-hidden")&&u.classList.remove("visually-hidden"),f.classList.contains("visually-hidden")&&f.classList.remove("visually-hidden")):(c.classList.contains("visually-hidden")&&c.classList.remove("visually-hidden"),u.classList.contains("visually-hidden")||u.classList.add("visually-hidden"),f.classList.contains("visually-hidden")||f.classList.add("visually-hidden")),// встановлення слухача пагінації, відображення її, 
 //в аргументах кількість відібраних фаворитів
 function(e){if(L.reset(e),e>g){// ставимо слухача на пагінацію 
-L.on("afterMove",x),v.classList.remove("is-hidden");return}v.classList.contains("is-hidden")||v.classList.add("is-hidden"),e||Notiflix.Notify.info("Вибачте, згідно параметрів пошуку рецептів не знайдено")}(o.length),b(h);// export {paginationOn}
-//# sourceMappingURL=favorite.b06244c9.js.map
+L.on("afterMove",w),v.classList.remove("is-hidden");return}v.classList.contains("is-hidden")||v.classList.add("is-hidden"),e||Notiflix.Notify.info("Вибачте, згідно параметрів пошуку рецептів не знайдено")}(o.length),x(h),// export {paginationOn}
+n("bUb57"),n("brr8Z");//# sourceMappingURL=favorite.e5730615.js.map
 
-//# sourceMappingURL=favorite.b06244c9.js.map
+//# sourceMappingURL=favorite.e5730615.js.map
