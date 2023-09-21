@@ -38,14 +38,14 @@ function onBasketBtnClick() {
   
   <form class="header-form" action="submit">
   <label class="header-form-label" for="name">Name</label>
-  <input class="header-form-input" type="text" name="name" placeholder=" " id="name" required />
+  <input class="header-form-input" type="text" name="name" id="name" required />
   <label class="header-form-label" for="phone">Phone number</label>
   <input
     class="header-form-input"
     type="tel"
     name="phone"
     id="phone"
-    placeholder=" "
+    
     required
   />
   <label class="header-form-label" for="email">Email</label>
@@ -54,7 +54,7 @@ function onBasketBtnClick() {
     type="email"
     name="email"
     id="email"
-    placeholder=" "
+    
     required
   />
   <label class="header-form-label" for="comment">Comment </label>
@@ -62,20 +62,22 @@ function onBasketBtnClick() {
     id="comment"
     class="header-form-input header-form-comment"
     name="comment"
-    placeholder=" "
+    
     rows="5"
   ></textarea>
     <button class="header-form-btn" type="submit">Send</button>
   </form>
 </div>
 `,
+
     {
       onShow: instance => {
         document.addEventListener('keydown', registrationEventKey);
       },
     },
     {
-      closeShow: instance => {
+      onClose: instance => {
+        document.body.style.overflow = 'auto';
         document.removeEventListener('keydown', registrationEventKey);
       },
     }
@@ -93,16 +95,15 @@ function onBasketBtnClick() {
 
   modal.addEventListener('submit', e => {
     e.preventDefault();
-  });
-  function registrationEventKey(e) {
-    if (e.code === 'Escape') return instance.close();
-  }
-  modalCloseBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
     instance.close();
   });
-  // питання чому не може спррацьовує на submit
-  modalSendBtn.addEventListener('click', () => {
+
+  function registrationEventKey(e) {
+    if (e.code === 'Escape') return instance.close();
+  }
+
+  modalCloseBtn.addEventListener('click', () => {
     document.body.style.overflow = 'auto';
     instance.close();
   });

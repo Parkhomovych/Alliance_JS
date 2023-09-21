@@ -10,6 +10,7 @@ const Theme = {
 switcher.addEventListener('change', () => {
   const isDarkMode = body.classList.contains(Theme.DARK);
 
+  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
   mobSwitcher.checked = switcher.checked;
 
   if (isDarkMode) {
@@ -17,8 +18,6 @@ switcher.addEventListener('change', () => {
   } else {
     body.classList.add(Theme.DARK);
   }
-
-  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
 });
 
 // ---------------Mob-Switcher------------------------------
