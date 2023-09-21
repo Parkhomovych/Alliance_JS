@@ -326,10 +326,10 @@
   background-color: var(--breen-color);
 }
 
-/* .js-menu-container.light-theme {
+.js-menu-container.light-theme {
   background-color: var(--whiit-first-color);
   color: var(--black-second-color);
-} */
+}
 
 .dark-theme .js-menu-container {
   background-color: var(--black-second-color);

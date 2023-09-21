@@ -53,9 +53,10 @@ let dataArray = [];
 
 // Завантажуємо збережені дані з локального сховища.
 const storedData = load('cardData');
-
 if (storedData) {
-    dataArray = storedData;
+  dataArray = storedData;
+} else {
+  save('cardData', dataArray);
 };
 
 // додати фаворіта 
@@ -77,19 +78,23 @@ function addFavorit(id) {
 // вилучити фаворіта 
 function removeFavorit(id) {
     const elem = dataArray.findIndex(({ _id }) => _id === id);
-    console.log(elem);
     if (elem > -1) {
         dataArray.splice(elem, 1);
         save('cardData', dataArray);
     }
 };
 
+// деактивувати фаворіта 
+function offFavorit(id) {
+    const elem = dataArray.findIndex(({ _id }) => _id === id);
+    if (elem > -1) {
+      dataArray[elem].favorit = false;
+  };
+};
+
 // перемикач фаворита, повертає frue|false 
 function toggleFavorit(id) {
-    console.log(id);
-    console.log(dataArray);
     const elem = dataArray.findIndex(({ _id }) => _id === id);
-    console.log(elem);
     if (elem < 0) {
         addFavorit(id);
         return true;
@@ -115,7 +120,6 @@ function resizeFavorit() {
 // атрибут класу для фавориту 
 function classFavorit(id) {
     const elem = dataArray.findIndex(({ _id }) => _id === id);
-    console.log(elem);
     if (elem > -1 && dataArray[elem].favorit) {
         return ' add-fill';
     };
@@ -125,11 +129,10 @@ function classFavorit(id) {
 // перевірка, чи є фаворітом 
 function isFavorit(id) {
     const elem = dataArray.findIndex(({ _id }) => _id === id);
-    console.log(elem);
     if (elem > -1 && dataArray[elem].favorit) {
         return true;
     };
     return false;
 };
 
-export { save, load, remove, addFavorit, removeFavorit, isFavorit, toggleFavorit, resizeFavorit, classFavorit, dataArray };
+export { save, load, remove, addFavorit, removeFavorit, offFavorit, isFavorit, toggleFavorit, resizeFavorit, classFavorit, dataArray };

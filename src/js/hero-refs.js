@@ -11,6 +11,10 @@ export default function getRefs() {
         markupSwiper:document.querySelector('.swiper-wrapper'),
         orderBtnHero:document.querySelector('.btn-hero'),
         message:document.querySelector('.header-form'),
-        btnMessage:document.querySelector('.header-form-btn')
+        btnMessage:document.querySelector('.header-form-btn'),
+        filterFavorite:document.querySelector('.favorite-filter-list'),
+        filterCategory:document.querySelector('.favorite-filter-item'),
+        cardsFavorite:document.querySelector('.card-favorite-list')
+        
     }
 };

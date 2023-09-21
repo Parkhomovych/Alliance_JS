@@ -43,6 +43,44 @@
 
 /* favorite */
 
-.favorite-cards{
+/* .favorite-cards{
   display: none;
+} */
+
+.favorite-filter-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+@media only screen and (min-width: 768px) {
+  .favorite-filter-list {
+    gap: 15px;
+  }
+}
+
+.favorite-filter-item {
+  display: inline-block;
+  padding: 14px 18px;
+  
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+    border-radius: 15px;
+  
+    border: 1px solid rgba(5, 5, 5, 0.20);
+    color: rgba(5, 5, 5, 0.30);
+
+    &:hover,
+      &:focus {
+        color: var(--white-second-color);
+        background-color: var(--breen-color);
+        border: 1px solid transparent;
+      }
+}
+
+@media only screen and (min-width: 768px) {
+  .favorite-filter-item {  
+      font-size: 16px;
+      line-height: 1.25;
+  }
 }

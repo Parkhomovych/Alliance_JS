@@ -8,9 +8,10 @@ import {
   createIngredientsModal,
   createTagsModal,
 } from './render-modal-function';
-import { addFavorit, removeFavorit, isFavorit, toggleFavorit, resizeFavorit, classFavorit, dataArray } from './storage'
+import { addFavorit, removeFavorit, isFavorit, offFavorit, toggleFavorit, resizeFavorit, classFavorit, dataArray } from './storage'
 const URL = 'https://tasty-treats-backend.p.goit.global/api';
 const elem = document.querySelector('.card-list');
+const elemClick =document.querySelector('#card-list');
 const resource = {
   events: '/events',
   recipes: '/recipes',
@@ -36,21 +37,51 @@ const searchRecipesFilter = async (
   area,
   ingredient
 ) => {
-  // Праметри API запиту
-  const params = new URLSearchParams({
-    limit: totalCards,
-  });
-  const response = await axios.get(`${URL}${resource.recipes}?${params}`);
-  return response;
-};
-window.addEventListener('load', handler);
-function handler() {
-  searchRecipesFilter()
-    .then(renderMarkup)
-    .catch(error => {
-      console.log(error);
-    });
+//   // Праметри API запиту
+//   const params = new URLSearchParams({
+//     limit: totalCards,
+//   });
+//   const response = await axios.get(`${URL}${resource.recipes}?${params}`);
+//   return response;
+// };
+// window.addEventListener('load', handler);
+// function handler() {
+//   searchRecipesFilter()
+//     .then(renderMarkup)
+//     .catch(error => {
+//       console.log(error);
+//     });
 }
+
+elemClick.addEventListener('click', onClickList);
+
+
+function onClickList(evt) {
+  if (evt.target.nodeName === 'BUTTON') {
+    const selectedModal = evt.target.dataset.set
+    if (selectedModal) {
+      // запуск модалки по кнопці
+      openRecipeModalPopular(evt.target.dataset.set);
+    }
+  };
+  if (evt.target.nodeName === 'svg') {
+    const selectedFavorits = evt.target.dataset.set;
+    if (selectedFavorits) {
+      const favoritDOM = elem.querySelector(`svg[data-set="${selectedFavorits}"]`);
+      addFavorit(selectedFavorits);
+      favoritDOM.classList.add("add-fill");
+    };
+  };
+  if (evt.target.nodeName === 'path') {
+    const selectedFavorits = evt.target.farthestViewportElement.dataset.set;
+    if (selectedFavorits) {
+      const favoritDOM = elem.querySelector(`svg[data-set="${selectedFavorits}"]`);
+      offFavorit(selectedFavorits);
+      favoritDOM.classList.remove("add-fill");
+    };
+  }
+};
+
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res);
   renderStar();
@@ -69,6 +100,7 @@ function renderStar() {
   });
 }
 function createMarkup(params) {
+  resizeFavorit();
   return params
     .map(elem => {
       return `
@@ -112,7 +144,7 @@ function createMarkup(params) {
                 </svg>
                 </div>
           </div>
-              <button id=${elem._id} class="info-btn">
+              <button id="${elem._id}" class="info-btn" data-set="${elem._id}">
                  See recipe
               </button>
               </div>
@@ -130,15 +162,15 @@ const config = {
   childList: true,
   subtree: true,
 };
-const observer = new MutationObserver(testFn); // створюємо екземпляр класу MutationObserver
-function testFn() {
-  const btnAll = document.querySelectorAll('.info-btn'); // витягуємо всі кнопки
-  btnAll.forEach(btn => {
-    btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
-  });
-}
+// const observer = new MutationObserver(testFn); // створюємо екземпляр класу MutationObserver
+// function testFn() {
+//   const btnAll = document.querySelectorAll('.info-btn'); // витягуємо всі кнопки
+//   btnAll.forEach(btn => {
+//     btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
+//   });
+// }
 
-observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
+// observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
 function openRecipeModal(e) {
   const btn = e.target.id;
   searchRecipesId(btn)
@@ -255,4 +287,4 @@ function markupModalRecipe(elem) {
 }
 
 
-export { renderMarkup, createMarkup,openRecipeModalPopular };
+export { renderMarkup, createMarkup,openRecipeModalPopular,renderStar };

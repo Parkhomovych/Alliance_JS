@@ -3,6 +3,7 @@ const mobSwitcher = document.querySelector('.mob-switcher-check');
 const body = document.querySelector('body');
 
 const Theme = {
+  LIGHT: 'light-theme ',
   DARK: 'dark-theme',
   GREEN: 'green-theme',
 };
@@ -10,7 +11,6 @@ const Theme = {
 switcher.addEventListener('change', () => {
   const isDarkMode = body.classList.contains(Theme.DARK);
 
-  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
   mobSwitcher.checked = switcher.checked;
 
   if (isDarkMode) {
@@ -18,8 +18,9 @@ switcher.addEventListener('change', () => {
   } else {
     body.classList.add(Theme.DARK);
   }
-});
 
+  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
+});
 // ---------------Mob-Switcher------------------------------
 
 mobSwitcher.addEventListener('change', () => {
