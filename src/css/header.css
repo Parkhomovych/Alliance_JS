@@ -1,13 +1,13 @@
-body {
+/* body {
   transition: background-color var(--time) var(--cubic);
-}
+} */
 
 .header {
   padding: 20px 0 20px;
   align-content: center;
   color: var(--black-second-color);
 
-  transition: background-color var(--time) var(--cubic);
+  /* transition: background-color var(--time) var(--cubic); */
 }
 
 .header-container {
@@ -107,8 +107,8 @@ body {
 
   background-color: var(--breen-color);
 
-  transition: transform var(--time) var(--cubic),
-    background-color var(--time) var(--cubic);
+  transition: transform var(--time) var(--cubic);
+  /* background-color var(--time) var(--cubic); */
 }
 
 .menu-container.is-open {
@@ -124,8 +124,8 @@ body {
 
   background-color: var(--breen-color);
 
-  transition: transform var(--time) var(--cubic),
-    background-color var(--time) var(--cubic);
+  transition: transform var(--time) var(--cubic);
+  /* background-color var(--time) var(--cubic); */
 }
 
 .menu-toggle-icon {
