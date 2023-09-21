@@ -13,6 +13,8 @@ import {
   searchRecipesFlexFilter,
 } from './createAPI';
 
+// import {hideShowFavorit} from './pagination'
+
 // зберігання даних в локальному сховищі
 const save = (key, value) => {
   try {
@@ -89,7 +91,12 @@ function offFavorit(id) {
     const elem = dataArray.findIndex(({ _id }) => _id === id);
     if (elem > -1) {
       dataArray[elem].favorit = false;
-  };
+    };
+    if (dataArray.findIndex(({ favorit }) => favorit) < 0) {
+      dataArray = [];
+      save('cardData', dataArray);
+      // hideShowFavorit(0);
+    }
 };
 
 // перемикач фаворита, повертає frue|false 
