@@ -1,5 +1,4 @@
 function createMarkupCards(params) {
-    console.log(params);
     return params
       .map(elem => {
         return `

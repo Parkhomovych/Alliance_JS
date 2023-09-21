@@ -10,13 +10,15 @@ const Theme = {
 switcher.addEventListener('change', () => {
   const isDarkMode = body.classList.contains(Theme.DARK);
 
+  mobSwitcher.checked = switcher.checked;
+
   if (isDarkMode) {
     body.classList.remove(Theme.DARK);
   } else {
     body.classList.add(Theme.DARK);
   }
 
-  // localStorage.setItem('theme', isDarkMode ? Theme.LIGHT : Theme.DARK);
+  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
 });
 
 // ---------------Mob-Switcher------------------------------
@@ -24,11 +26,13 @@ switcher.addEventListener('change', () => {
 mobSwitcher.addEventListener('change', () => {
   const isDarkMode = body.classList.contains(Theme.DARK);
 
+  switcher.checked = mobSwitcher.checked;
+
   if (isDarkMode) {
     body.classList.remove(Theme.DARK);
   } else {
     body.classList.add(Theme.DARK);
   }
 
-  // localStorage.setItem('theme', isDarkMode ? Theme.LIGHT : Theme.DARK);
+  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
 });
