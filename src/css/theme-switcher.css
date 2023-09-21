@@ -45,6 +45,8 @@
   background-color: var(--breen-color);
 }
 
+/* ---------------COLOR THEME---------------------- */
+
 /* .light-theme {
   background-color: var(--white-second-color);
   color: var(--black-second-color);
@@ -61,18 +63,19 @@
   color: var(--white-second-color);
 }
 
+/* ---------------COLOR THEME DARK---------------------- */
 
-.dark-theme .a {
-  color: var(--breen-color);
-}
-.dark-theme .b {
-  color: var(--breen-color);
-}
-
-
+/* ---HEADER--- */
 .dark-theme .header {
   background-color: #161616;
 }
+.dark-theme .index .a {
+  color: var(--breen-color) !important;
+}
+.dark-theme .favorite .b {
+  color: var(--breen-color) !important;
+}
+
 .dark-theme .nav-item-link {
   color: var(--whiit-first-color);
 }
@@ -100,6 +103,31 @@
 .dark-theme .menu-toggle-icon:focus {
   stroke: var(--breen-color);
 }
+.dark-theme .header-modal {
+  background-color: #050505;
+  color: var(--whiit-first-color);
+  border: 1px solid #fff3;
+}
+.dark-theme .modal-close-btn {
+  background-image: url('../images/whitex.svg');
+  background-size: cover;
+  background-position: center center;
+}
+.dark-theme .header-modal-title {
+  color: var(--whiit-first-color);
+}
+.dark-theme .header-form-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+.dark-theme .header-form-input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+}
+.dark-theme .header-form-input {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---HERO--- */
 .dark-theme .title-hero {
   color: var(--whiit-first-color);
 }
@@ -110,9 +138,11 @@
   color: var(--whiit-first-color);
   background-color: #161616;
 
-  transition: color var(--time) var(--cubic),
-    background-color var(--time) var(--cubic);
+  transition: color var(--time) var(--cubic);
+  /* background-color var(--time) var(--cubic); */
 }
+
+/* ---FILTERS--- */
 .dark-theme .recipes-all {
   background-color: #161616;
 }
@@ -134,13 +164,12 @@
   color: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 .dark-theme .filter-select::-webkit-scrollbar-track {
   background-color: transparent;
 }
 .dark-theme .filter-select::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 0px solid rgba(255, 255, 255, 0.18);
 }
 .dark-theme .filter-opt {
   background: #050505;
@@ -148,12 +177,9 @@
   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
   color: rgba(255, 255, 255, 0.3);
 }
-.dark-theme .filter-opt:focus {
-  background: #050505;
-
+.dark-theme .filter-select .filter-opt:checked {
   color: white;
 }
-
 
 .dark-theme .filter-search-icon {
   fill: rgba(255, 255, 255, 0.2);
@@ -166,6 +192,7 @@
 .dark-theme .js-search::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
+
 .dark-theme .categories-btn-js {
   background-color: #161616;
   color: rgba(255, 255, 255, 0.5);
@@ -176,6 +203,15 @@
 .dark-theme .reset-btn {
   color: rgba(255, 255, 255, 0.5);
 }
+.dark-theme .categories-tumb::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border: 0px solid rgba(255, 255, 255, 0.18);
+}
+.dark-theme .categories-tumb::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---CARDS--- */
 .dark-theme .info-title {
   color: var(--whiit-first-color);
 }
@@ -199,38 +235,7 @@
 .dark-theme .popular-recipes-text-js {
   color: rgba(255, 255, 255, 0.8);
 }
-.dark-theme .categories-tumb::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.18);
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
-
-}
-.dark-theme .categories-tumb::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.dark-theme .header-modal {
-  background-color: #050505;
-  color: var(--whiit-first-color);
-}
-.dark-theme .modal-close-btn {
-  background-image: url('../images/whitex.svg');
-  background-size: cover;
-  background-position: center center;
-}
-.dark-theme .header-modal-title {
-  color: var(--whiit-first-color);
-}
-.dark-theme .header-form-label {
-  color: rgba(255, 255, 255, 0.5);
-}
-.dark-theme .header-form-input {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: transparent;
-}
-.dark-theme .header-form-input {
-  color: rgba(255, 255, 255, 0.5);
-}
 .dark-theme .tui-page-btn {
   color: var(--whiit-first-color) !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
@@ -242,6 +247,7 @@
 
 .dark-theme .card-modal {
   background-color: #050505;
+  border: 1px solid #fff3;
 }
 .dark-theme .modal-card-tag {
   border-color: rgba(255, 255, 255, 0.2);
@@ -268,10 +274,8 @@
 .dark-theme .modal-card-instructions::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.18);
   border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 0px solid rgba(255, 255, 255, 0.18);
 }
-
-
 
 /* ----------------MOB THEME SWITCHER-------------- */
 
@@ -322,10 +326,10 @@
   background-color: var(--breen-color);
 }
 
-/* .js-menu-container.light-theme {
+.js-menu-container.light-theme {
   background-color: var(--whiit-first-color);
   color: var(--black-second-color);
-} */
+}
 
 .dark-theme .js-menu-container {
   background-color: var(--black-second-color);
