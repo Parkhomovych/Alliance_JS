@@ -70,28 +70,34 @@
 
 import { createMarkupCards } from './favorit-markup-cards'
 import getRefs from './hero-refs';
-import {dataArray} from './storage'
+import { dataArray } from './storage'
+// import {paginationOn} from './pagination'
+
 const refs = getRefs();
-let filterFavoriteCards =[];
+let filterFavoriteCards = dataArray.filter(obj=>obj.favorit).map(elem => elem);
+
+console.log(filterFavoriteCards);
+
+createFilterFavorite();
+
 // const cardFavoriteLocal = localStorage.getItem("cardData");
 // const cardFavorites = JSON.parse(cardFavoriteLocal);
 
 // Дефолтне додавання всіх All  categories
 
-refs.cardsFavorite.innerHTML = createMarkupCards(dataArray);
+// refs.cardsFavorite.innerHTML = createMarkupCards(dataArray);
 
 // Перевірка чи є в localStorage Favoriteі
 
-if (dataArray.length > 0) {
-    createFilterFavorite()
-};
+// if (dataArray.length > 0) {
+//     createFilterFavorite()
+// };
+
 
 // Функція створення фільтра
 function createFilterFavorite() {
-
-    markup = markupFilterFavorite(dataArray).join('');
+    markup = markupFilterFavorite(filterFavoriteCards).join('');
     refs.filterFavorite.insertAdjacentHTML('beforeend', markup);
-
 };
 
 // Функція розмальовка фільтра
@@ -109,20 +115,29 @@ function markupFilterFavorite(dataArray) {
 refs.filterFavorite.addEventListener('click', handlerFilterCategory);
 
 function handlerFilterCategory(e) {
-
+    
     if (e.target.textContent === 'All  categories') {
+        filterFavoriteCards = dataArray.filter(obj => obj.favorit).map(elem => elem);
         // filterFavoriteCards = dataArray;
-        refs.cardsFavorite.innerHTML = createMarkupCards(dataArray);
-
+        // refs.cardsFavorite.innerHTML = createMarkupCards(dataArray);
+     
+        // paginationOn(filterFavoriteCards.length);
+        return;
     };
+ 
+    filterFavoriteCards = dataArray.
+        filter(obj => obj.favorit && obj.category === e.target.textContent)
+        .map(elem => elem);
+    
+    // paginationOn(filterFavoriteCards.length);
+    console.log(filterFavoriteCards);
 
+// filterFavoriteCards.forEach((el) => {
 
-dataArray.forEach((el) => {
-
-        if (el.category === e.target.textContent) {
-           filterFavoriteCards.push(el)
-        };
-    })
+//         if (el.category === e.target.textContent) {
+//            filterFavoriteCards.push(el)
+//         };
+//     })
 
     // cardFavorites.forEach(el => {
 
