@@ -86,6 +86,7 @@ function renderStar() {
   });
 }
 function createMarkup(params) {
+  console.log(params);
   return params
     .map(elem => {
       return `
@@ -275,4 +276,4 @@ function markupModalRecipe(elem) {
 }
 
 
-export { renderMarkup, createMarkup,openRecipeModalPopular };
+export { renderMarkup, createMarkup,openRecipeModalPopular,renderStar };
