@@ -7,14 +7,16 @@ let r=document.querySelector(".js-open-menu"),s=document.querySelector(".js-clos
   
   <form class="header-form" action="submit">
   <label class="header-form-label" for="name">Name</label>
-  <input class="header-form-input" type="text" name="name" id="name" required />
+  <input class="header-form-input" type="text" name="name" id="name" minlength="3" required placeholder="Bob" />
   <label class="header-form-label" for="phone">Phone number</label>
   <input
     class="header-form-input"
     type="tel"
     name="phone"
     id="phone"
-    
+    pattern="^+380d{3}d{2}d{2}d{2}$"
+    placeholder="+380111113121"
+    minlength="13"
     required
   />
   <label class="header-form-label" for="email">Email</label>
@@ -23,7 +25,8 @@ let r=document.querySelector(".js-open-menu"),s=document.querySelector(".js-clos
     type="email"
     name="email"
     id="email"
-    
+    pattern=".+@globex.com"
+    placeholder="test@mail.com"
     required
   />
   <label class="header-form-label" for="comment">Comment </label>
@@ -1669,6 +1672,6 @@ function y(t,e){var n,i=e[t];return"true"===t?i=!0:"false"===t?i=!1:d.test(t)?i=
   |============================
   | Refs hero
   |============================
-*/function i(){return{swiperJs:document.querySelector(".swiper"),pagination:document.querySelector(".swiper-pagination"),eventSwiper:document.querySelector(".hero-swiper"),markupSwiper:document.querySelector(".swiper-wrapper"),orderBtnHero:document.querySelector(".btn-hero"),message:document.querySelector(".header-form"),btnMessage:document.querySelector(".header-form-btn"),filterFavorite:document.querySelector(".favorite-filter-list"),filterCategory:document.querySelector(".favorite-filter-item"),cardsFavorite:document.querySelector(".card-favorite-list")}}})}();//# sourceMappingURL=favorite.f4f107ef.js.map
+*/function i(){return{swiperJs:document.querySelector(".swiper"),pagination:document.querySelector(".swiper-pagination"),eventSwiper:document.querySelector(".hero-swiper"),markupSwiper:document.querySelector(".swiper-wrapper"),orderBtnHero:document.querySelector(".btn-hero"),message:document.querySelector(".header-form"),btnMessage:document.querySelector(".header-form-btn"),filterFavorite:document.querySelector(".favorite-filter-list"),filterCategory:document.querySelector(".favorite-filter-item"),cardsFavorite:document.querySelector(".card-favorite-list")}}})}();//# sourceMappingURL=favorite.50d3529f.js.map
 
-//# sourceMappingURL=favorite.f4f107ef.js.map
+//# sourceMappingURL=favorite.50d3529f.js.map
