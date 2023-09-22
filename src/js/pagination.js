@@ -60,6 +60,7 @@ function paginationOn(totalFavorites) {
     pagination.on('afterMove', onChangePagination);
   }
   showPageFavorites(currentPage);
+  hideShowFavorit(dataArray.length);
 }
 
 // перемальовка фаворитів при події на пагінації
@@ -83,6 +84,7 @@ function showPageFavorites(page) {
 
 // прибирання-додавання элементів, коли нема, або є фаворити
 function hideShowFavorit(favorits) {
+  // console.log(favorits);
   if (favorits > 0) {
     if (!noRecipes.classList.contains('visually-hidden')) {
       noRecipes.classList.add('visually-hidden');
@@ -121,6 +123,7 @@ function paginationVisualy(totalFavorites) {
 
 //накладання фільтру в залежності від обраної категорії
 function handlerFilterCategory(e) {
+  resizeFavorit();
   if (e.target.textContent === 'All categories') {
     filterFavoriteCards = dataArray
       .filter(obj => obj.favorit)
@@ -129,14 +132,17 @@ function handlerFilterCategory(e) {
       filterFavoriteCards = dataArray
       .filter(obj => obj.favorit && obj.category === e.target.textContent)
       .map(elem => elem);
-    }
-    paginationOn(filterFavoriteCards.length);
+  }
+  // console.log(filterFavoriteCards);
+  // createFilterFavorite();
+  paginationOn(filterFavoriteCards.length);
 };
 
 // Функція створення фільтра
 function createFilterFavorite() {
  const markupFilter = markupFilterFavorite(filterFavoriteCards).join('');
   refs.filterFavorite.insertAdjacentHTML('beforeend', markupFilter);
+  // console.log(markupFilter);
 }
 
 // Функція розмальовка фільтра
