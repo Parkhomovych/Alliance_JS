@@ -19,7 +19,7 @@ switcher.addEventListener('change', () => {
     body.classList.add(Theme.DARK);
   }
 
-  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
+  localStorage.setItem('theme', isDarkMode ? Theme.LIGHT : Theme.DARK);
 });
 // ---------------Mob-Switcher------------------------------
 
@@ -34,5 +34,5 @@ mobSwitcher.addEventListener('change', () => {
     body.classList.add(Theme.DARK);
   }
 
-  localStorage.setItem('theme', isDarkMode ? Theme.DARK : Theme.LIGHT);
+  localStorage.setItem('theme', isDarkMode ? Theme.LIGHT : Theme.DARK);
 });

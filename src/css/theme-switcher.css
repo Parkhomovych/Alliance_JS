@@ -55,6 +55,7 @@
 .favorite.dark-theme {
   background-color: #161616;
   color: var(--whiit-first-color);
+
 }
 
 .green-theme {
@@ -69,10 +70,10 @@
   background-color: #161616;
 }
 .dark-theme .index .a {
-  color: var(--breen-color) !important;
+  color: var(--breen-color) ;
 }
 .dark-theme .favorite .b {
-  color: var(--breen-color) !important;
+  color: var(--breen-color) ;
 }
 
 .dark-theme .nav-item-link {
