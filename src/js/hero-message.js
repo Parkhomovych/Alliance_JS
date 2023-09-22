@@ -24,7 +24,7 @@ export default function callMassageAdd(modalMessage) {
 function auditMessage(res) {
     
     if (res.data.message==="Success") {
-        Notify.success('Вітаємо, ваше замовлення прийнято!')
-    }else{Notify.warning('Вибачте, в цей час замовлення не приймаються!')}
+        Notify.success('Your order has been accepted!')
+    }else{Notify.warning('Sorry, orders are not accepted at this time!')}
     
 };
