@@ -105,54 +105,16 @@ createTime();
 function createTime() {
   let markup = '';
 
-  // ❗ ДОРОБИТИ ПРАВИЛЬНУ ЛОГІКУ ЧАСУ ❗
-  for (let time = 0; time < 220; time += 5) {
-    if (time % 10 === 0) {
-      markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    }
-    // if (time === 25) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 55) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 75) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 85) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 105) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 195) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 205) {
-    //   markup += `<option class="filter-opt" value="${time}">${time}</option>`;
-    // }
-    // if (time === 50) {
-    //   markup += `<option class="filter-opt" value="${time + 1}">${
-    //     time + 1
-    //   }</option>`;
-    // }
-    // if (time === 155) {
-    //   markup += `<option class="filter-opt" value="${time + 3}">${
-    //     time + 3
-    //   }</option>`;
-    // }
-    // if (time === 10) {
-    //   markup += `<option class="filter-opt" value="${time + 2}">${
-    //     time + 2
-    //   }</option>`;
-    // }
-    // if (time === 25) {
-    //   markup += `<option class="filter-opt" value="${time + 2}">${
-    //     time + 2
-    //   }</option>`;
-    // }
-  }
-  elements.time.insertAdjacentHTML('beforeend', markup);
+const select = document.querySelector('.select-time');
+
+// Додаємо опції з цифрами та словом "min" (починаючи з 0)
+for (let time = 0; time < 220; time += 5) {
+  const option = document.createElement('option');
+  option.value = time;
+  option.text = `${time} min`;
+  select.appendChild(option);
+   }
+     elements.time.insertAdjacentHTML('beforeend', markup);
 }
 
 // ❗ Створення js-reset-filter-btn ❗
@@ -165,4 +127,9 @@ function handlerReset(evt) {
   removeParams('ingredient');
   removeParams('title');
   showSearchRecipes();
+
+elements.search.value = ''; // Очистити поле для пошуку
+  elements.time.selectedIndex = 0; // Скинути вибір часу на початкове значення
+  elements.area.selectedIndex = 0; // Скинути вибір області на початкове значення
+  elements.ingredients.selectedIndex = 0; // Скинути вибір інгредієнта на початкове значення
 }
