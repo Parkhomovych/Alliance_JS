@@ -62,14 +62,10 @@ function paginationOn(totalFavorites) {
   currentPage = 1;
   pagination.off('afterMove', onChangePagination);
   pagination.reset(totalFavorites);
+  paginationVisualy(totalFavorites);
   if (totalFavorites > perPageFavorites) {
     // ставимо слухача на пагінацію
     pagination.on('afterMove', onChangePagination);
-    containerShow.classList.remove('is-hidden');
-  } else {
-    if (!containerShow.classList.contains('is-hidden')) {
-      containerShow.classList.add('is-hidden');
-    }
   }
   showPageFavorites(currentPage);
 }
@@ -90,10 +86,6 @@ function showPageFavorites(page) {
   const arr = filterFavoriteCards.filter(
     (elem, idx) => idx >= favoriteStart && idx <= favoriteEnd
   );
-  // console.log("favoriteStart", favoriteStart);
-  // console.log("favoriteEnd",favoriteEnd);
-  // console.log("------1------>", filterFavoriteCards.length);
-  // console.log("------2------>", arr.length);
   renderMarkup(arr);
 }
 
@@ -122,28 +114,37 @@ function hideShowFavorit(favorits) {
   }
 }
 
+//візуалізація строки пагінації
+function paginationVisualy(totalFavorites) {
+    if (totalFavorites > perPageFavorites) {
+      if (containerShow.classList.contains('visually-hidden')) {
+        containerShow.classList.remove('visually-hidden');
+      };
+      return;
+  };
+    if (!containerShow.classList.contains('visually-hidden')) {
+      containerShow.classList.add('visually-hidden');
+    }; 
+};
+
+//накладання фільтру в залежності від обраної категорії
 function handlerFilterCategory(e) {
   if (e.target.textContent === 'All categories') {
     filterFavoriteCards = dataArray
       .filter(obj => obj.favorit)
+      .map(elem => elem);      
+    }else{      
+      filterFavoriteCards = dataArray
+      .filter(obj => obj.favorit && obj.category === e.target.textContent)
       .map(elem => elem);
-
+    }
     paginationOn(filterFavoriteCards.length);
-    return;
-  }
-
-  filterFavoriteCards = dataArray
-    .filter(obj => obj.favorit && obj.category === e.target.textContent)
-    .map(elem => elem);
-
-  paginationOn(filterFavoriteCards.length);
-  console.log(filterFavoriteCards);
-}
+};
 
 // Функція створення фільтра
 function createFilterFavorite() {
-  markup = markupFilterFavorite(filterFavoriteCards).join('');
-  refs.filterFavorite.insertAdjacentHTML('beforeend', markup);
+  markupFilter = markupFilterFavorite(filterFavoriteCards).join('');
+  refs.filterFavorite.insertAdjacentHTML('beforeend', markupFilter);
 }
 
 // Функція розмальовка фільтра
