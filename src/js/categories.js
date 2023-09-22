@@ -123,22 +123,31 @@ function reShowSearchRecipes() {
 
 // встановлення слухача пагінації, відображення її
 function paginationListenerOn(totalPages) {
+  paginationRecipes.off('afterMove', onMovePagination);
   paginationRecipes.reset(totalPages * perPageRecipes);
+  paginationVisualy(totalPages);
   if (totalPages > 1) {
     paginationRecipes.on('afterMove', onMovePagination);
-    refs.paginationShow.classList.remove('is-hidden');
     return;
-  } else {
-    if (!refs.paginationShow.classList.contains('is-hidden')) {
-      refs.paginationShow.classList.add('is-hidden');
-    };
-  };
+  } 
   if (!totalPages) {
     Notiflix.Notify.info(
       'Вибачте, згідно параметрів пошуку рецептів не знайдено'
-    );
+      );
+    };
   };
-};
+  
+  function paginationVisualy(totalPages) {
+    if (totalPages > 1) {
+      if (refs.paginationShow.classList.contains('visually-hidden')) {
+        refs.paginationShow.classList.remove('visually-hidden');
+      }
+      return;
+    }
+    if (!refs.paginationShow.classList.contains('visually-hidden')) {
+      refs.paginationShow.classList.add('visually-hidden');
+    }; 
+}
 
 // перемальовка рецептів при зміщенні пагінації
 function onMovePagination() {
