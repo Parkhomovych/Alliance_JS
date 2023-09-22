@@ -3,7 +3,7 @@ const u={allCategiries:document.querySelector(".categories-btn-all-js"),categori
 let h=window.innerWidth<768?6:window.innerWidth<1280?8:9,f=1,m=window.innerWidth<768?2:3;// екземпляр класу з параметрами для запиту рецептів по філтру
 const g=new URLSearchParams({page:f,limit:h}),v={totalItems:0,itemsPerPage:h,visiblePages:m,page:f},w=new/*@__PURE__*/(s(o))(u.pagination,v);// перемальовка блоку рецептів після зміни параметрів запиту з 1 сторынки з перемальовкою пагінації
 function b(){w.off("afterMove",S),C("page",1),(0,p.searchRecipesFlexFilter)(g).then(e=>{(0,c.renderMarkup)(e.data.results),// встановлення слухача пагінації, відображення її
-function(e){if(w.reset(e*h),e>1){w.on("afterMove",S),u.paginationShow.classList.remove("is-hidden");return}u.paginationShow.classList.contains("is-hidden")||u.paginationShow.classList.add("is-hidden"),e||/*@__PURE__*/s(d).Notify.info("Вибачте, згідно параметрів пошуку рецептів не знайдено")}(e.data.totalPages)}).catch(()=>{})}// перемальовка рецептів при зміщенні пагінації
+function(e){if(w.reset(e*h),e>1){w.on("afterMove",S),u.paginationShow.classList.remove("is-hidden");return}u.paginationShow.classList.contains("is-hidden")||u.paginationShow.classList.add("is-hidden"),e||/*@__PURE__*/s(d).Notify.info("Sorry, no recipes were found according to the search parameters")}(e.data.totalPages)}).catch(()=>{})}// перемальовка рецептів при зміщенні пагінації
 function S(){C("page",f=w.getCurrentPage()),(0,p.searchRecipesFlexFilter)(g).then(e=>{(0,c.renderMarkup)(e.data.results)}).catch(()=>{})}// вибір "всіх категорій" по натисканню "AllCategories"
 function T(){x(),u.allCategiries.classList.add("is-active"),M("category"),b()}// вибір конкретної категорії
 function y(e){if("BUTTON"!==e.target.nodeName)return;u.allCategiries.classList.contains("is-active")&&u.allCategiries.classList.remove("is-active"),x(),e.target.classList.add("is-active");let t=e.target.dataset.set;C("category",t),b()}// знімаємо помітку з активної категорії
@@ -319,6 +319,6 @@ e$.form.addEventListener("submit",function(e){e.preventDefault()}),e$.time.addEv
 (0,p.searchIngredients)().then(e=>{e$.ingredients.innerHTML=e.data.map(({name:e,_id:t})=>`<option class="filter-opt" value="${t}">${e}</option>`).join("")}).catch(e=>{}),// ❗ Створення Time ❗
 function(){let e=document.querySelector(".select-time");// Додаємо опції з цифрами та словом "min" (починаючи з 0)
 for(let t=0;t<220;t+=5){let i=document.createElement("option");i.value=t,i.text=`${t} min`,e.appendChild(i)}e$.time.insertAdjacentHTML("beforeend","")}(),// ❗ Створення js-reset-filter-btn ❗
-e$.resetBtn.addEventListener("click",function(e){M("time"),M("area"),M("ingredient"),M("title"),b(),e$.search.value="",e$.time.selectedIndex=0,e$.area.selectedIndex=0,e$.ingredients.selectedIndex=0}//# sourceMappingURL=index.004585ac.js.map
+e$.resetBtn.addEventListener("click",function(e){M("time"),M("area"),M("ingredient"),M("title"),b(),e$.search.value="",e$.time.selectedIndex=0,e$.area.selectedIndex=0,e$.ingredients.selectedIndex=0}//# sourceMappingURL=index.23df6535.js.map
 );
-//# sourceMappingURL=index.004585ac.js.map
+//# sourceMappingURL=index.23df6535.js.map
