@@ -57,7 +57,7 @@ function onBasketBtnClick() {
     type="email"
     name="email"
     id="email"
-    pattern=".+@globex\.com"
+    pattern = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/"
     placeholder="test@mail.com"
     title="Enter your email" 
     required
