@@ -4,9 +4,9 @@
   |============================
 */
 export default function markupEvents(params) {
-    const{cook,topic}=params
-        return params.map(elem=>{
-            return `<div class="swiper-slide">
+  return params
+    .map(elem => {
+      return `<div class="swiper-slide">
             <div class="swiper-desing">
                 <img class="shef-photo"
                     src="${elem.cook.imgUrl}" srcset="${elem.cook.imgWebpUrl}" alt="${elem.cook.name}">
@@ -19,6 +19,7 @@ export default function markupEvents(params) {
             <div class="hero-dish-photo" style="background-image: url(${elem.topic.previewUrl})"> 
             </div>
         </div>
-        </div>`
-        }).join('')
-};
+        </div>`;
+    })
+    .join('');
+}
