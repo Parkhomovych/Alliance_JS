@@ -135,7 +135,7 @@ function paginationListenerOn(totalPages) {
   };
   if (!totalPages) {
     Notiflix.Notify.info(
-      'Вибачте, згідно параметрів пошуку рецептів не знайдено'
+      'Sorry, no recipes were found according to the search parameters'
     );
   };
 };
