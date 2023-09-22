@@ -1,4 +1,3 @@
-import axios from 'axios';
 // Імпорт для модалки
 const basicLightbox = require('basiclightbox');
 import * as basicLightbox from 'basiclightbox';
@@ -8,19 +7,11 @@ import {
   createIngredientsModal,
   createTagsModal,
 } from './render-modal-function';
-import { addFavorit, removeFavorit, isFavorit, offFavorit, toggleFavorit, resizeFavorit, classFavorit, dataArray } from './storage'
+import { addFavorit, offFavorit, resizeFavorit, classFavorit } from './storage';
 const URL = 'https://tasty-treats-backend.p.goit.global/api';
 const elem = document.querySelector('.card-list');
-const elemClick =document.querySelector('#card-list');
-const resource = {
-  events: '/events',
-  recipes: '/recipes',
-  categories: '/categories',
-  popular: '/recipes/popular',
-  ingredients: '/ingredients',
-  areas: '/areas',
-  orders: '/orders',
-};
+const elemClick = document.querySelector('#card-list');
+
 let totalCards;
 if (375 >= window.outerWidth) {
   totalCards = 6;
@@ -29,58 +20,38 @@ if (375 >= window.outerWidth) {
 } else {
   totalCards = 9;
 }
-const searchRecipesFilter = async (
-  category,
-  page,
-  limit,
-  time,
-  area,
-  ingredient
-) => {
-//   // Праметри API запиту
-//   const params = new URLSearchParams({
-//     limit: totalCards,
-//   });
-//   const response = await axios.get(`${URL}${resource.recipes}?${params}`);
-//   return response;
-// };
-// window.addEventListener('load', handler);
-// function handler() {
-//   searchRecipesFilter()
-//     .then(renderMarkup)
-//     .catch(error => {
-//       console.log(error);
-//     });
-}
 
 elemClick.addEventListener('click', onClickList);
 
-
 function onClickList(evt) {
   if (evt.target.nodeName === 'BUTTON') {
-    const selectedModal = evt.target.dataset.set
+    const selectedModal = evt.target.dataset.set;
     if (selectedModal) {
       // запуск модалки по кнопці
       openRecipeModalPopular(evt.target.dataset.set);
     }
-  };
+  }
   if (evt.target.nodeName === 'svg') {
     const selectedFavorits = evt.target.dataset.set;
     if (selectedFavorits) {
-      const favoritDOM = elem.querySelector(`svg[data-set="${selectedFavorits}"]`);
+      const favoritDOM = elem.querySelector(
+        `svg[data-set="${selectedFavorits}"]`
+      );
       addFavorit(selectedFavorits);
-      favoritDOM.classList.add("add-fill");
-    };
-  };
+      favoritDOM.classList.add('add-fill');
+    }
+  }
   if (evt.target.nodeName === 'path') {
     const selectedFavorits = evt.target.farthestViewportElement.dataset.set;
     if (selectedFavorits) {
-      const favoritDOM = elem.querySelector(`svg[data-set="${selectedFavorits}"]`);
+      const favoritDOM = elem.querySelector(
+        `svg[data-set="${selectedFavorits}"]`
+      );
       offFavorit(selectedFavorits);
-      favoritDOM.classList.remove("add-fill");
-    };
+      favoritDOM.classList.remove('add-fill');
+    }
   }
-};
+}
 
 function renderMarkup(res) {
   elem.innerHTML = createMarkup(res);
@@ -112,7 +83,9 @@ function createMarkup(params) {
       }" loading="lazy"/>
         </div>
         <button type="button" class="btn-favorite" >
-                <svg class="icon-favorite${classFavorit(elem._id)}" data-set="${elem._id}" viewBox="0 0 32 32">
+                <svg class="icon-favorite${classFavorit(elem._id)}" data-set="${
+        elem._id
+      }" viewBox="0 0 32 32">
 <path d="M15.992 6.848c-2.666-3.117-7.111-3.955-10.451-1.101s-3.81 7.625-1.187 11c2.181 2.806 8.781 8.725 10.944 10.641 0.242 0.214 0.363 0.321 0.504 0.364 0.123 0.037 0.258 0.037 0.381 0 0.141-0.042 0.262-0.149 0.504-0.364 2.163-1.916 8.763-7.834 10.944-10.641 2.623-3.375 2.21-8.177-1.187-11.001s-7.785-2.015-10.451 1.101z"></path>
                 </svg>
         </button>
@@ -157,33 +130,6 @@ function createMarkup(params) {
 }
 
 //  Модалка з рецептом
-const config = {
-  // параметри MutationObserver
-  childList: true,
-  subtree: true,
-};
-// const observer = new MutationObserver(testFn); // створюємо екземпляр класу MutationObserver
-// function testFn() {
-//   const btnAll = document.querySelectorAll('.info-btn'); // витягуємо всі кнопки
-//   btnAll.forEach(btn => {
-//     btn.addEventListener('click', openRecipeModal); // вішаємо слухача на кнопки
-//   });
-// }
-
-// observer.observe(elem, config); // виклик обзервера(елемент, налаштування)
-function openRecipeModal(e) {
-  const btn = e.target.id;
-  searchRecipesId(btn)
-    .then(res => {
-      markupModalRecipe(res);
-      const simple = document.querySelector('.basicLightbox');
-      simple.classList.add('correct-recipe');
-    })
-
-    .catch(error => {
-      console.log(error);
-    });
-}
 
 function openRecipeModalPopular(popularRecept) {
   searchRecipesId(popularRecept)
@@ -264,14 +210,21 @@ function markupModalRecipe(elem) {
 </div>
 `,
 
-    { onShow: (instance) => { document.addEventListener('keydown', registrationEventKey) } },
-    { closeShow: (instance) => { document.removeEventListener('keydown', registrationEventKey) } }
+    {
+      onShow: instance => {
+        document.addEventListener('keydown', registrationEventKey);
+      },
+    },
+    {
+      closeShow: instance => {
+        document.removeEventListener('keydown', registrationEventKey);
+      },
+    }
   );
   instance.show();
   function registrationEventKey(e) {
-    if (e.code === 'Escape')
-    return instance.close();
-  };
+    if (e.code === 'Escape') return instance.close();
+  }
 
   // Функції розмітки та рейтингу модалки
   createTagsModal(tags);
@@ -286,5 +239,4 @@ function markupModalRecipe(elem) {
   });
 }
 
-
-export { renderMarkup, createMarkup,openRecipeModalPopular,renderStar };
+export { renderMarkup, createMarkup, openRecipeModalPopular, renderStar };

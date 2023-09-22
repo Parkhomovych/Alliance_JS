@@ -13,7 +13,7 @@
 @import url(./scroll-to-top.css);
 @import url(./favorite.css);
 @import url(./favorite-markUp.css);
-
+@import url(../js/modernNormalize.js);
 /* Fonst */
 @font-face {
   font-family: 'Inter';
@@ -55,7 +55,12 @@
 html {
   scroll-behavior: smooth;
 }
-body {
+body.index {
+  background-color: #f8f8f8;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+}
+body.favorite {
   background-color: #f8f8f8;
   font-family: 'Inter', sans-serif;
   font-style: normal;
@@ -92,7 +97,4 @@ body {
     padding-left: 100px;
     padding-right: 100px;
   }
-}
-body.modal-open {
-  overflow: hidden;
 }

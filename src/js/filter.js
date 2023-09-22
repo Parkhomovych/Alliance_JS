@@ -1,16 +1,7 @@
-
 import axios from 'axios';
 import {
-  searchEvents,
-  searchCategories,
-  searchRecipesFilter,
-  searchRecipesPopular,
-  searchRecipesId,
-  searchRecipesIdRating,
   searchIngredients,
   searchAreas,
-  searchAddOrders,
-  searchRecipesFlexFilter,
 } from './createAPI';
 import { changeParams, removeParams, showSearchRecipes } from './categories';
 import debounce from 'lodash.debounce';

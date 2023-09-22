@@ -1,8 +1,3 @@
-/**
-  |============================
-  | Refs hero
-  |============================
-*/
 export default function getRefs() {
     return{
         swiperJs:document.querySelector('.swiper'),

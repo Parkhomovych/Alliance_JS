@@ -1,14 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
-
 import { renderMarkup } from './markup-card.js';
-
-import { searchCategories } from './createAPI.js';
-
 import { dataArray, resizeFavorit } from './storage.js';
-
-// import {filterFavoriteCards} from './filter-favorite.js'
-
 import getRefs from './hero-refs';
 
 //зберігаємо та відновлюємо кількість сторінок пагінації (totalItems) у об'єкті options
@@ -23,7 +16,6 @@ let filterFavoriteCards = dataArray
 const noRecipes = document.querySelector('.no-recipe-content');
 const boxList = document.querySelector('.box-list');
 const cardsFavorite = document.querySelector('.favorite-cards');
-const filterFavorite = document.querySelector('.favorite-filter');
 const containerShow = document.querySelector('#tui-pagination-container');
 const container = document.getElementById('tui-pagination-container');
 

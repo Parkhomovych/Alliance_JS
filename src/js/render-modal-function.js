@@ -2,7 +2,6 @@
 // Фунуція для рейтенгу
 function renderStarModal(rating) {
     const starBox = document.querySelector('.box-stars')
-    const starColor = document.querySelector('.star')
     const starElements = [...starBox.children]
     const totalRating = Math.round(rating)
     starElements.forEach((el, i) => {

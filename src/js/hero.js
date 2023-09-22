@@ -10,11 +10,6 @@ refs.orderBtnHero.addEventListener('click', handlerOrderBtn);
 
 function handlerOrderBtn() {
   onBasketBtnClick();
-
-  // const modalMessage = document.querySelector('.header-form');
-  // callMassageAdd(modalMessage);
-
-
 };
 
 function handlerSwiper() {

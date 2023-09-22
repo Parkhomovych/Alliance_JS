@@ -95,7 +95,6 @@ function onBasketBtnClick() {
   callMassageAdd(modalMessage);
 
   const modalCloseBtn = document.querySelector('.js-modal-close-btn');
-  const modalSendBtn = document.querySelector('.header-form-btn');
   const modal = document.querySelector('.header-modal');
 
   modal.addEventListener('submit', e => {

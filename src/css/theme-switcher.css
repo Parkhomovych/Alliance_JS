@@ -47,15 +47,14 @@
 
 /* ---------------COLOR THEME---------------------- */
 
-/* .light-theme {
-  background-color: var(--white-second-color);
-  color: var(--black-second-color);
-} */
 
-.dark-theme {
+.index.dark-theme {
   background-color: #161616;
   color: var(--whiit-first-color);
-  /* stroke: var(--whiit-first-color); */
+}
+.favorite.dark-theme {
+  background-color: #161616;
+  color: var(--whiit-first-color);
 }
 
 .green-theme {
