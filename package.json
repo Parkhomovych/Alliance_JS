@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "FSON 88 Team 3",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://Parkhomovych.github.io/Alliance_JS",
+  "homepage": "https://GoitStudentsWorks.github.io/js_88_Parkhomovych",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /Alliance_JS/"
+    "build": "parcel build src/*.html --public-url /js_88_Parkhomovych/"
   },
   "repository": {
     "type": "git",
