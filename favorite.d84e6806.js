@@ -26,7 +26,7 @@ let a=document.querySelector(".js-open-menu"),s=document.querySelector(".js-clos
     type="email"
     name="email"
     id="email"
-    pattern=".+@globex.com"
+    pattern = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/"
     placeholder="test@mail.com"
     title="Enter your email" 
     required
@@ -1672,6 +1672,6 @@ function b(t,e){var n,r=e[t];return"true"===t?r=!0:"false"===t?r=!1:p.test(t)?r=
  *     dp: 'dp',
  *     dh: 'dh'
  * });
- */function(t,e){var n=document.createElement("img"),o="";return r(e,function(t,e){o+="&"+e+"="+t}),o=o.substring(1),n.src=t+"?"+o,n.style.display="none",document.body.appendChild(n),document.body.removeChild(n),n};/***/}])}),o.register("fAYBR",function(e,n){t(e.exports,"default",function(){return r});function r(){return{swiperJs:document.querySelector(".swiper"),pagination:document.querySelector(".swiper-pagination"),eventSwiper:document.querySelector(".hero-swiper"),markupSwiper:document.querySelector(".swiper-wrapper"),orderBtnHero:document.querySelector(".btn-hero"),message:document.querySelector(".header-form"),btnMessage:document.querySelector(".header-form-btn"),filterFavorite:document.querySelector(".favorite-filter-list"),filterCategory:document.querySelector(".favorite-filter-item"),cardsFavorite:document.querySelector(".card-favorite-list")}}});//# sourceMappingURL=favorite.cfcc620a.js.map
+ */function(t,e){var n=document.createElement("img"),o="";return r(e,function(t,e){o+="&"+e+"="+t}),o=o.substring(1),n.src=t+"?"+o,n.style.display="none",document.body.appendChild(n),document.body.removeChild(n),n};/***/}])}),o.register("fAYBR",function(e,n){t(e.exports,"default",function(){return r});function r(){return{swiperJs:document.querySelector(".swiper"),pagination:document.querySelector(".swiper-pagination"),eventSwiper:document.querySelector(".hero-swiper"),markupSwiper:document.querySelector(".swiper-wrapper"),orderBtnHero:document.querySelector(".btn-hero"),message:document.querySelector(".header-form"),btnMessage:document.querySelector(".header-form-btn"),filterFavorite:document.querySelector(".favorite-filter-list"),filterCategory:document.querySelector(".favorite-filter-item"),cardsFavorite:document.querySelector(".card-favorite-list")}}});//# sourceMappingURL=favorite.d84e6806.js.map
 
-//# sourceMappingURL=favorite.cfcc620a.js.map
+//# sourceMappingURL=favorite.d84e6806.js.map
