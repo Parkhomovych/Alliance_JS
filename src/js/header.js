@@ -38,7 +38,7 @@ function onBasketBtnClick() {
   
   <form class="header-form" action="submit">
   <label class="header-form-label" for="name">Name</label>
-  <input class="header-form-input" type="text" name="name" id="name" minlength="3" required placeholder="Bob" />
+  <input class="header-form-input" type="text" name="name" id="name" minlength="3" required placeholder="Bob" title="Enter your name"  />
   <label class="header-form-label" for="phone">Phone number</label>
   <input
     class="header-form-input"
@@ -46,6 +46,7 @@ function onBasketBtnClick() {
     name="phone"
     id="phone"
     pattern="^+380\d{3}\d{2}\d{2}\d{2}$"
+    title="Enter your phone number"
     placeholder="+380111113121"
     minlength="13"
     required
@@ -58,6 +59,7 @@ function onBasketBtnClick() {
     id="email"
     pattern=".+@globex\.com"
     placeholder="test@mail.com"
+    title="Enter your email" 
     required
   />
   <label class="header-form-label" for="comment">Comment </label>
@@ -65,7 +67,7 @@ function onBasketBtnClick() {
     id="comment"
     class="header-form-input header-form-comment"
     name="comment"
-    
+    placeholder="Enter your message"
     rows="5"
   ></textarea>
     <button class="header-form-btn" type="submit">Send</button>
