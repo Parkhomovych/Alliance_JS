@@ -46,6 +46,9 @@ if (storedData) {
   save('cardData', dataArray);
 }
 
+//при закритті сторінки, перезаписуєм сховище 
+window.addEventListener("unload", function () { resizeFavorit()});
+
 // додати фаворіта
 function addFavorit(id) {
   const elem = dataArray.findIndex(({ _id }) => _id === id);
