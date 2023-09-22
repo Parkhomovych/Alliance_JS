@@ -30,11 +30,7 @@ w(),// запит переліку популярних рецептів
           </div>
         </button>
         </li> `).join(""));// слухачі подій на популярних рецептах
-let t=u.popular.querySelectorAll(".popular-button-js");t.forEach(e=>{e.addEventListener("click",N)})}).catch(()=>{});var f=c("goQqF"),L=c("bUb57"),M=c("fAYBR");const I=(0,M.default)();function A(e){let t=/**
-  |============================
-  | Розмітка Swiper
-  |============================
-*/function(e){let{cook:t,topic:i}=e;return e.map(e=>`<div class="swiper-slide">
+let t=u.popular.querySelectorAll(".popular-button-js");t.forEach(e=>{e.addEventListener("click",N)})}).catch(()=>{});var f=c("goQqF"),L=c("bUb57"),M=c("fAYBR");const I=(0,M.default)();function A(e){let t=e.data.map(e=>`<div class="swiper-slide">
             <div class="swiper-desing">
                 <img class="shef-photo"
                     src="${e.cook.imgUrl}" srcset="${e.cook.imgWebpUrl}" alt="${e.cook.name}">
@@ -47,7 +43,7 @@ let t=u.popular.querySelectorAll(".popular-button-js");t.forEach(e=>{e.addEventL
             <div class="hero-dish-photo" style="background-image: url(${e.topic.previewUrl})"> 
             </div>
         </div>
-        </div>`).join("")}(e.data);I.markupSwiper.insertAdjacentHTML("afterbegin",t)}/**
+        </div>`).join("");I.markupSwiper.insertAdjacentHTML("afterbegin",t)}/**
   |============================
   | Бібліотека Swiper
   |============================
@@ -317,6 +313,6 @@ eB.form.addEventListener("submit",function(e){e.preventDefault()}),eB.time.addEv
 (0,f.searchIngredients)().then(e=>{eB.ingredients.innerHTML=e.data.map(({name:e,_id:t})=>`<option class="filter-opt" value="${t}">${e}</option>`).join("")}).catch(e=>{}),// ❗ Створення Time ❗
 function(){let e=document.querySelector(".select-time");// Додаємо опції з цифрами та словом "min" (починаючи з 0)
 for(let t=0;t<220;t+=5){let i=document.createElement("option");i.value=t,i.text=`${t} min`,e.appendChild(i)}eB.time.insertAdjacentHTML("beforeend","")}(),// ❗ Створення js-reset-filter-btn ❗
-eB.resetBtn.addEventListener("click",function(e){E("time"),E("area"),E("ingredient"),E("title"),w(),eB.search.value="",eB.time.selectedIndex=0,eB.area.selectedIndex=0,eB.ingredients.selectedIndex=0}//# sourceMappingURL=index.9559a0fc.js.map
+eB.resetBtn.addEventListener("click",function(e){E("time"),E("area"),E("ingredient"),E("title"),w(),eB.search.value="",eB.time.selectedIndex=0,eB.area.selectedIndex=0,eB.ingredients.selectedIndex=0}//# sourceMappingURL=index.4bcfc94b.js.map
 );
-//# sourceMappingURL=index.9559a0fc.js.map
+//# sourceMappingURL=index.4bcfc94b.js.map
