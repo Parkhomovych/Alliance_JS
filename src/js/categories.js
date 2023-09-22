@@ -136,7 +136,7 @@ function paginationListenerOn(totalPages) {
     );
 
   };
-  
+}
   function paginationVisualy(totalPages) {
     if (totalPages > 1) {
       if (refs.paginationShow.classList.contains('visually-hidden')) {
