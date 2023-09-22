@@ -36,3 +36,10 @@ mobSwitcher.addEventListener('change', () => {
 
   localStorage.setItem('theme', isDarkMode ? Theme.LIGHT : Theme.DARK);
 });
+const savedTheme = localStorage.getItem('theme');
+const switcherCheked = document.querySelector('.switcher-check');
+// Встановити тему за замовчуванням, якщо вона не збережена в localStorage
+if (savedTheme === 'dark-theme') {
+  switcherCheked.checked = true;
+  body.classList.add(savedTheme);
+}
