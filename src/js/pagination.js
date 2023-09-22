@@ -143,7 +143,7 @@ function handlerFilterCategory(e) {
 
 // Функція створення фільтра
 function createFilterFavorite() {
-  markupFilter = markupFilterFavorite(filterFavoriteCards).join('');
+ const markupFilter = markupFilterFavorite(filterFavoriteCards).join('');
   refs.filterFavorite.insertAdjacentHTML('beforeend', markupFilter);
 }
 
